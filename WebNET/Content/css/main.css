@@ -1,0 +1,49 @@
+/* 
+1.Global css
+2. container
+3. scroll to top button
+*/
+
+/* 1. global css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding: 0;
+  font-family: "Titillium Web", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* 2. container */
+.container {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* 3. scroll to top button */
+.scroll-to-top {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+}
+
+.scroll-to-top .scroll-to-top__btn {
+  padding: 4px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  color: white;
+  opacity: 0;
+  background: #7fba00;
+}

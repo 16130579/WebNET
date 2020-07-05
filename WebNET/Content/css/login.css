@@ -1,0 +1,67 @@
+.login__content__wrapper {
+    width: 75%;
+    padding: 0 16px;
+}
+
+.new__customer,
+.returning__customer {
+    border: 1px solid #e5e5e5;
+    width: 49%;
+    padding: 15px;
+    border-radius: .35rem;
+}
+
+.new__customer__form>div,
+.returning__customer__form>div {
+    padding: 8px 0;
+}
+
+.new__customer {
+    height: 300px;
+}
+
+.returning__customer {
+    height: 400px;
+}
+
+.returning__customer__form input {
+    padding: 6px 12px;
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    border-radius: .35rem;
+}
+
+.returning__customer__form>div.forgot>a {
+    color: #000000;
+    text-decoration: none;
+    transition: all .35s;
+}
+
+.returning__customer__form>div.forgot>a:hover {
+    color: #7fba00;
+}
+
+form>h5 {
+    font-weight: 600;
+}
+
+.text__level2 {
+    font-weight: 600;
+}
+
+.button__level2 {
+    padding: 8px 0;
+}
+
+.button__level2>a {
+    padding: 8px 24px;
+    background-color: #4d4d4d;
+    color: #ffffff;
+    border-radius: 40px;
+    transition: all .35s;
+}
+
+.button__level2>a:hover {
+    text-decoration: none;
+    background-color: #7fba00;
+}

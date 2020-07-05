@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E099CD0D-B13E-4BA2-9CEC-6793DC78E613}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebNET</RootNamespace>
+    <AssemblyName>WebNET</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44376</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\about-us.css" />
+    <Content Include="Content\css\admin.css" />
+    <Content Include="Content\css\blog-detail.css" />
+    <Content Include="Content\css\blog.css" />
+    <Content Include="Content\css\cart-page.css" />
+    <Content Include="Content\css\category.css" />
+    <Content Include="Content\css\checkout.css" />
+    <Content Include="Content\css\contact-us.css" />
+    <Content Include="Content\css\delivery.css" />
+    <Content Include="Content\css\footer.css" />
+    <Content Include="Content\css\header.css" />
+    <Content Include="Content\css\home.css" />
+    <Content Include="Content\css\login-admin.css" />
+    <Content Include="Content\css\login.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\product-detail.css" />
+    <Content Include="Content\css\register.css" />
+    <Content Include="Content\css\secure-payment.css" />
+    <Content Include="Content\css\terms-and-condition.css" />
+    <Content Include="Content\img\01-700x700.jpg" />
+    <Content Include="Content\img\01-85x85.jpg" />
+    <Content Include="Content\img\06-275x275.jpg" />
+    <Content Include="Content\img\06-85x85.jpg" />
+    <Content Include="Content\img\46499158_906532309541687_735503026202083328_n.jpg" />
+    <Content Include="Content\img\541699.jpg" />
+    <Content Include="Content\img\72849683_2511181802448117_8010999878404538368_o.jpg" />
+    <Content Include="Content\img\74285211_1108899705982930_830203915457789952_o.jpg" />
+    <Content Include="Content\img\acerola.jpg" />
+    <Content Include="Content\img\almond.jpg" />
+    <Content Include="Content\img\american_express.png" />
+    <Content Include="Content\img\apple.jpg" />
+    <Content Include="Content\img\asbaragus.jpeg" />
+    <Content Include="Content\img\aubergine.jpg" />
+    <Content Include="Content\img\avatar.jpg" />
+    <Content Include="Content\img\avocado.jpg" />
+    <Content Include="Content\img\banana.jpg" />
+    <Content Include="Content\img\bannermain.jpg" />
+    <Content Include="Content\img\baoquan-235.png" />
+    <Content Include="Content\img\basil.jpg" />
+    <Content Include="Content\img\black-bean.jpg" />
+    <Content Include="Content\img\blog-1-890x620.jpg" />
+    <Content Include="Content\img\blog-2-890x620.jpg" />
+    <Content Include="Content\img\blog-3-890x620.jpg" />
+    <Content Include="Content\img\blog-4-890x620.jpg" />
+    <Content Include="Content\img\blog-5-890x620.jpg" />
+    <Content Include="Content\img\blog-6-890x620.jpg" />
+    <Content Include="Content\img\blueberry.png" />
+    <Content Include="Content\img\bonbon.jpg" />
+    <Content Include="Content\img\breastmilk.png" />
+    <Content Include="Content\img\broccoli.jpg" />
+    <Content Include="Content\img\broccoly.jpg" />
+    <Content Include="Content\img\cabbage.jpg" />
+    <Content Include="Content\img\cam.jpg" />
+    <Content Include="Content\img\cana.jpeg" />
+    <Content Include="Content\img\carrot.png" />
+    <Content Include="Content\img\cashew.jpeg" />
+    <Content Include="Content\img\category-icon1.png" />
+    <Content Include="Content\img\category-icon2.png" />
+    <Content Include="Content\img\category-icon3.png" />
+    <Content Include="Content\img\category-icon4.png" />
+    <Content Include="Content\img\category-icon5.png" />
+    <Content Include="Content\img\category-icon6.png" />
+    <Content Include="Content\img\category-icon7.png" />
+    <Content Include="Content\img\category-icon8.png" />
+    <Content Include="Content\img\category-icon9.png" />
+    <Content Include="Content\img\celery.jpg" />
+    <Content Include="Content\img\cherries.jpg" />
+    <Content Include="Content\img\chestnut.jpg" />
+    <Content Include="Content\img\chili.jpg" />
+    <Content Include="Content\img\citrus.jpg" />
+    <Content Include="Content\img\coconut.jpg" />
+    <Content Include="Content\img\coffee-nut.jpg" />
+    <Content Include="Content\img\corn.jpg" />
+    <Content Include="Content\img\cucumber.jpg" />
+    <Content Include="Content\img\cupuacu.jpg" />
+    <Content Include="Content\img\discharge.jpg" />
+    <Content Include="Content\img\discover.png" />
+    <Content Include="Content\img\donggoi-2499.png" />
+    <Content Include="Content\img\dragon-fruits.jpg" />
+    <Content Include="Content\img\dudu.jpg" />
+    <Content Include="Content\img\durian.jpg" />
+    <Content Include="Content\img\fish-lettuce.jpg" />
+    <Content Include="Content\img\footer-bkg.jpg" />
+    <Content Include="Content\img\garlic.jpg" />
+    <Content Include="Content\img\google_wallet.png" />
+    <Content Include="Content\img\grape.jpg" />
+    <Content Include="Content\img\guava.jpg" />
+    <Content Include="Content\img\header-bkg.jpg" />
+    <Content Include="Content\img\jackfruit.jpg" />
+    <Content Include="Content\img\kiwano.jpg" />
+    <Content Include="Content\img\kiwi.jpg" />
+    <Content Include="Content\img\Kohlrabi.jpg" />
+    <Content Include="Content\img\left-banner.jpg" />
+    <Content Include="Content\img\lemon.jpg" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\longan.jpg" />
+    <Content Include="Content\img\lychee.jpg" />
+    <Content Include="Content\img\macadamia.png" />
+    <Content Include="Content\img\main-banner-1-1903x633.jpg" />
+    <Content Include="Content\img\main-banner-2-1903x633.jpg" />
+    <Content Include="Content\img\main-banner-3-1903x633.jpg" />
+    <Content Include="Content\img\mango.jpg" />
+    <Content Include="Content\img\mangosteen.jpg" />
+    <Content Include="Content\img\melon-fruit.jpg" />
+    <Content Include="Content\img\melon.png" />
+    <Content Include="Content\img\mung-bean.jpg" />
+    <Content Include="Content\img\nipa.jpg" />
+    <Content Include="Content\img\okra.jpg" />
+    <Content Include="Content\img\orange.jpg" />
+    <Content Include="Content\img\otaheite-apple.jpg" />
+    <Content Include="Content\img\papaya.jpg" />
+    <Content Include="Content\img\passion.jpeg" />
+    <Content Include="Content\img\paypal.png" />
+    <Content Include="Content\img\peach.jpg" />
+    <Content Include="Content\img\peanut.jpg" />
+    <Content Include="Content\img\pear-shaped-melon.jpg" />
+    <Content Include="Content\img\pear.jpg" />
+    <Content Include="Content\img\peper.jpg" />
+    <Content Include="Content\img\pepino.png" />
+    <Content Include="Content\img\physalis-angulata.jpg" />
+    <Content Include="Content\img\pine-nut.jpg" />
+    <Content Include="Content\img\pistachio.jpg" />
+    <Content Include="Content\img\plum.jpg" />
+    <Content Include="Content\img\pomegrenade.png" />
+    <Content Include="Content\img\pomelo.jpg" />
+    <Content Include="Content\img\potato.jpg" />
+    <Content Include="Content\img\presimmon.jpg" />
+    <Content Include="Content\img\pumpkin-seed.png" />
+    <Content Include="Content\img\pumpkin.png" />
+    <Content Include="Content\img\quote.png" />
+    <Content Include="Content\img\radish.jpg" />
+    <Content Include="Content\img\rambutan.jpg" />
+    <Content Include="Content\img\sake.jpg" />
+    <Content Include="Content\img\salak.jpg" />
+    <Content Include="Content\img\sapodilla.jpg" />
+    <Content Include="Content\img\scallion.jpg" />
+    <Content Include="Content\img\sea-buckthorn.jpg" />
+    <Content Include="Content\img\small-apple.jpg" />
+    <Content Include="Content\img\soursop.jpg" />
+    <Content Include="Content\img\spinach.jpg" />
+    <Content Include="Content\img\sprouts.jpg" />
+    <Content Include="Content\img\startfruit.jpg" />
+    <Content Include="Content\img\strawberry.png" />
+    <Content Include="Content\img\tamarillo.jpg" />
+    <Content Include="Content\img\tamarind.jpg" />
+    <Content Include="Content\img\taro.jpg" />
+    <Content Include="Content\img\tomato.png" />
+    <Content Include="Content\img\vanchuyen-7552.png" />
+    <Content Include="Content\img\vanchuyen01-8391.png" />
+    <Content Include="Content\img\visa.png" />
+    <Content Include="Content\img\walnut.jpg" />
+    <Content Include="Content\img\water-dropwort.jpg" />
+    <Content Include="Content\img\water-spinach.png" />
+    <Content Include="Content\img\watermelon.jpg" />
+    <Content Include="Content\img\wili-chili.jpg" />
+    <Content Include="Content\img\xoay.jpg" />
+    <Content Include="Content\js\admin.js" />
+    <Content Include="Content\js\categories.js" />
+    <Content Include="Content\js\home.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\productDetail.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Layout\HomeLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\SanPham\SanPhamPartial.cshtml" />
+    <Content Include="Views\SanPham\SanPham.cshtml" />
+    <Content Include="Views\SanPham\ChiTietSanPham.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Register\Register.cshtml" />
+    <Content Include="Views\User\User.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55152</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44376/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

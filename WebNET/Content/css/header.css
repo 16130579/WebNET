@@ -1,0 +1,319 @@
+    /*
+    1.header tag
+    2. Top navigation
+        2.1 language and currency
+            2.1.1 sub menu
+        2.2 logo
+        2.3 user login search
+    3. main nav
+        3.1 main menu
+    */
+
+    /* 1.header  tag*/
+    header {
+        background: url(../img/header-bkg.jpg);
+        padding: 0 0 20px 0;
+    }
+
+    /* 2.Top navigation */
+    .top-nav {
+        padding: 24px 0;
+    }
+
+    .top-nav .top-nav__container {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 100%;
+    }
+
+    /* 2.1 language and currency */
+    .top-nav .top-nav__container .language-currency {
+        display: flex;
+        width: 40%;
+    }
+
+    .language-currency ul.language-currency__ul {
+        display: flex;
+        position: relative;
+    }
+
+    ul.language-currency__ul>li {
+        padding: 0 24px 0 0;
+    }
+
+    /* 2.1.1 sub menu */
+    .sub-menu {
+        display: none;
+
+        padding: 4px 12px;
+        width: 100px;
+        border-radius: 6px;
+
+        background-color: #666666;
+    }
+
+    .sub-menu>li {
+        cursor: pointer;
+        color: white;
+        transition: all .35s;
+    }
+
+    .sub-menu>li:hover {
+        color: #7fba00;
+    }
+
+    .sub-menu>li>a {
+        text-decoration: none;
+        color: white;
+        transition: all .35s;
+    }
+
+    .sub-menu>li>a:hover {
+        color: #7fba00;
+    }
+
+    ul.language-currency__ul>li:hover .sub-menu {
+        display: block;
+        position: absolute;
+    }
+
+
+
+    /* 2.2 logo */
+    .top-nav__logo {}
+
+    .top-nav__logo>a>img {
+        width: 100%;
+    }
+
+    /* 2.3 user login search */
+    .user-login-search {
+        display: flex;
+        justify-content: flex-end;
+
+        width: 40%;
+        position: relative;
+    }
+
+    ul.user-login-search__ul {
+        display: flex;
+        position: relative;
+    }
+
+    ul.user-login-search__ul>li {
+        padding: 0 0 0 24px;
+        cursor: pointer;
+        transition: all 0.35s;
+    }
+
+    ul.user-login-search__ul>li:hover {
+        color: #7fba00;
+    }
+
+    .user:hover .sub-menu {
+        display: block;
+        position: absolute;
+    }
+
+    .sub__input {
+        display: none;
+    }
+
+    .sub__input>input {
+        border: 1px solid #e5e5e5;
+        padding: 4px 8px;
+    }
+
+    .search__header:hover .sub__input {
+        display: block;
+        position: absolute;
+    }
+
+    /* 3. Main nav */
+    .main-nav {
+        width: 100%;
+    }
+
+    nav.main-nav__container {}
+
+    /* 3.1 main menu */
+    .main-nav__container ul.main-nav__menu {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+    }
+
+    ul.main-nav__menu>li {
+        /* width: 140px; */
+        padding: 12px 20px;
+        position: relative;
+        border-radius: 50px;
+        text-align: center;
+    }
+
+    ul.main-nav__menu>li:hover {
+        background-color: #7fba00;
+    }
+
+    ul.main-nav__menu>li>a {
+        text-decoration: none;
+        color: black;
+    }
+
+    ul.main-nav__menu>li:hover>a {
+        color: white;
+    }
+
+    .sub__main__menu {
+        display: none;
+        width: 150px;
+        background-color: #666666;
+        padding: 12px;
+        border-radius: .35rem;
+
+    }
+
+    .sub__main__menu>li {
+        text-align: left;
+    }
+
+    .sub__main__menu>li>a {
+        text-decoration: none;
+        color: #e5e5e5;
+        transition: all .35s;
+    }
+
+    .sub__main__menu>li:hover>a {
+        color: #7fba00;
+    }
+
+    ul.main-nav__menu>li:hover .sub__main__menu {
+        display: block;
+        z-index: 10;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+
+    /* cart */
+    .cart__container {
+        z-index: 100;
+        position: absolute;
+        width: 338px;
+        background: #666666;
+        top: 28px;
+        border-radius: 6px;
+        opacity: 0.9;
+        overflow: hidden;
+        height: 0;
+        transition: all 5s ease 0s;
+    }
+
+    .cart__container.open {
+        height: auto;
+        overflow: visible;
+    }
+
+    .cart__wrapper {
+        display: flex;
+        padding-bottom: 20px;
+        padding: 15px 20px;
+        cursor: pointer;
+    }
+
+    .cart__image {
+        width: 30%;
+    }
+
+    .cart__image img {
+        width: 80%;
+        vertical-align: middle;
+    }
+
+    .cart-info {
+        width: 65%;
+        display: flex;
+        color: white;
+    }
+
+    .cart-info__name {
+        width: 50%;
+    }
+
+    .cart-info__quantity {
+        width: 10%;
+    }
+
+    .cart-info__price {
+        width: 40%;
+    }
+
+    .cart__button--remove {
+        width: 5%;
+    }
+
+    .cart__button--remove button {
+        width: 21px;
+        border-radius: 50%;
+        border: none;
+        vertical-align: middle;
+        color: white;
+        background: red;
+        padding: 3px;
+    }
+
+    .cart__button--remove button:hover {
+        background-color: #a04e4a;
+        cursor: pointer;
+    }
+
+    .sub-total__container {
+        padding: 0 20px;
+    }
+
+    .sub-total__content {
+        display: flex;
+        padding: 20px 0;
+    }
+
+    .sub-total__info {
+        width: 70%;
+        text-align: right;
+        color: white;
+    }
+
+    .sub-total__price {
+        width: 30%;
+        text-align: right;
+        color: white;
+    }
+
+    .total-button__wrapper {
+        text-align: right;
+        padding: 0 20px 20px 0;
+    }
+
+    .total-button__wrapper button {
+        padding: 10px 14px;
+        color: white;
+        background: #888888;
+        border: 0;
+        border-radius: 14px;
+    }
+
+    .total-button__wrapper button:hover {
+        cursor: pointer;
+        background: #7fba00;
+        transition: all 0.5s;
+    }
+
+    .total-button__wrapper .active {
+        background: #7fba00;
+    }
+
+    .total-button__wrapper .active:hover {
+        background: #888888;
+    }

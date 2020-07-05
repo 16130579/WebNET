@@ -1,0 +1,29 @@
+.about__us__wrapper {
+    width: 75%;
+}
+
+.about__item>div {
+    padding: 0 24px;
+}
+
+.teammates__wrapper {
+    padding: 48px 0;
+}
+
+.teammates__wrapper .teamates__title {
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;
+}
+
+.teamate__content {
+    display: flex;
+    justify-content: center;
+}
+
+.teamate__item {}
+
+.teamate__image>img {
+    width: 100%;
+    border-radius: 10px;
+}

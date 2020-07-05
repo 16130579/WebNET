@@ -1,0 +1,171 @@
+.checkout__wrapper {
+  width: 100%;
+}
+
+.chekout__title {
+  padding: 10px 0;
+}
+
+.step {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.btn__step {
+  padding: 10px;
+  color: #444;
+  width: 100%;
+  background-color: #f8f8f8;
+  text-align: left;
+  border: 1px solid #e5e5e5;
+  font-weight: 600;
+}
+
+.collapse.border__full {
+  border: 1px solid #e5e5e5;
+}
+
+.step1__container {
+  display: flex;
+  padding: 24px;
+  margin: 0 -16px;
+}
+
+.step1__container .step2__btn {
+  justify-content: flex-start;
+}
+
+.forgot {
+  padding: 12px 0;
+}
+
+.forgot>a {
+  transition: all .35s;
+  color: inherit;
+}
+
+.forgot>a:hover {
+  color: #7fba00;
+  text-decoration: none;
+}
+
+.new__customer {
+  width: 50%;
+  padding: 0 16px;
+}
+
+.returning__customer {
+  width: 50%;
+  padding: 0 16px;
+}
+
+.returning__customer input {
+  width: 100%;
+  padding: 4px 8px;
+  border: 1px solid #e5e5e5;
+}
+
+.step1__container input {
+  border-radius: .35rem;
+}
+
+/* ***************************** */
+.step2__wrapper {
+  display: flex;
+  margin: 0 -16px;
+}
+
+.personal__detail {
+  width: 50%;
+  padding: 0 16px;
+}
+
+
+.your__address {
+  width: 50%;
+  padding: 0 16px;
+}
+
+.step2__btn {
+  /* padding: 0 24px; */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.step2__btn>a {
+  padding: 8px 16px;
+  background-color: #4d4d4d;
+  /* border: 1px solid #4d4d4d; */
+  color: #ffffff;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: all 0.35s;
+}
+
+.step2__btn>a:hover {
+  background-color: #7fba00;
+}
+
+.personal__detail>div>input,
+.your__address>div>input,
+.your__address>div>select {
+  width: 100%;
+  padding: 4px 8px;
+  border: 1px solid #e5e5e5;
+  border-radius: .25rem;
+}
+
+.input__personal>select {
+  width: 100%;
+}
+
+.input__personal>p>span {
+  color: red;
+}
+
+/* *************** */
+
+.add__comment>textarea {
+  width: 100%;
+  border-radius: .25rem;
+  padding: 4px 8px;
+  border: 1px solid #e5e5e5;
+}
+
+.step2__container,
+.step4__container,
+.step3__container,
+.step5__container {
+  padding: 24px;
+}
+
+/*  */
+
+.step5__container>table {
+  width: 100%;
+
+}
+
+table tr td,
+table tr th {
+  padding: 4px 8px;
+  border: 1px solid #e5e5e5;
+}
+
+table tr td {
+  text-align: right;
+}
+
+.step3__container .add__comment,
+.step4__container .add__comment {
+  padding: 12px 0;
+}
+
+.step5__container .step2__btn {
+  padding: 12px 0;
+}
+
+.checkoutsuccess__content a {
+  color: #7fba00;
+  text-decoration: none;
+}

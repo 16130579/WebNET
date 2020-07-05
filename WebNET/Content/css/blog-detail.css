@@ -1,0 +1,29 @@
+.blog__titles {
+    padding: 12px 0;
+}
+
+.blog__detail__content h6,
+.blog__detail__comment {
+    font-weight: 600;
+}
+
+.comment__container>div {
+    padding: 16px 0;
+}
+
+.comment__container input,
+.comment__container textarea {
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    padding: 6px 12px;
+    border-radius: .35rem;
+}
+
+.add__comment>h6 {
+    font-weight: 600;
+}
+
+.blog__detail__comment {
+    border-top: 1px solid #e5e5e5;
+    padding: 16px 0;
+}

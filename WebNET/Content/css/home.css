@@ -1,0 +1,346 @@
+/*
+1. Hero banner
+2. Main content 
+    2.1 Categories List
+    2.2 Product List
+        2.2.1 star rank
+        2.2.2 add to cart button
+3. Customer review
+    3.1 customer review title
+    3.2 review main
+        3.2.1 review top
+        3.2.2 review bottom
+4. See more button
+5. hide more button
+*/
+
+/* 1. Hero banner */
+.hero-banner {
+    width: 100%;
+}
+
+.hero-banner__main {
+    width: 100%;
+}
+
+.hero-banner__main>img {
+    width: 100%;
+}
+
+/* 2.Main Content */
+.main-content {}
+
+.main-content__container {
+    /* display: flex; */
+}
+
+/* 2.1.Categories List */
+.categories-list__container {
+    padding: 20px 0;
+}
+
+.categories-list__container ul.categories-list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+ul.categories-list>li {
+    padding: 4px 20px;
+    margin: 0 10px;
+
+    border-radius: 50px;
+    border: 2px solid #f1f1f1;
+    transition: all 0.35s;
+}
+
+ul.categories-list>li:hover {
+    background: #7fba00;
+}
+
+ul.categories-list>li:hover>a {
+    color: white;
+}
+
+ul.categories-list>li.active {
+    background: #7fba00;
+}
+
+ul.categories-list>li.active>a {
+    color: white;
+}
+
+ul.categories-list>li>a {
+    text-decoration: none;
+    color: black;
+}
+
+/* 2.2 Product List */
+.product-list {}
+
+.product-list.product-list__none {
+    display: none;
+}
+
+.product-list__container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    margin: 0 -8px;
+}
+
+.product-list__container .product-item {
+    width: 25%;
+    padding: 0 8px;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: all 0.35s;
+}
+
+.product-item>.product-item__image>img {
+    width: 100%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.product-item__content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.price--line-through {
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* 2.2.1 star rank */
+ul.star-rank {
+    display: flex;
+    justify-content: center;
+}
+
+ul.star-rank>li {
+    color: yellow;
+}
+
+.product-item:hover ul.star-rank {
+    display: none;
+}
+
+/* 2.2.2 add to cart button */
+.add-to-cart__btn {
+    display: none;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #7fba00;
+}
+
+.product-item:hover .add-to-cart__btn {
+    display: block;
+}
+
+/* 3. Customer review */
+.customer__review {
+    padding: 48px 0;
+}
+
+.customer__review__container {}
+
+/* 3.1 cutomer review title */
+.customer__review__container .customer__review__title {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+}
+
+/* 3.2 review main */
+.review__container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin: 0 -16px;
+    padding: 56px 0;
+}
+
+.review__container .review__description {
+    width: 50%;
+    padding: 0 16px;
+    position: relative;
+}
+
+/* 3.2.1 review top */
+.review__top {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+}
+
+.review__top__image {
+    width: 30%;
+    padding: 0 16px;
+}
+
+.review__top__image>img {
+    width: 89%;
+    border-radius: 20px;
+}
+
+.customer__name {}
+
+.customer__position {
+    color: #7fba00;
+}
+
+.review__top__title {
+    width: 70%;
+}
+
+/* 3.2.2 review bottom */
+.review__bottom {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f1f1f1;
+    padding: 16px 0;
+    margin: 58px 0 0 0;
+    border-radius: 12px;
+}
+
+.review__bottom__icon {
+    width: 30%;
+    padding: 64px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.review__bottom__icon>img {
+    width: 25%;
+}
+
+.review__bottom .review__bottom__description {
+    width: 68%;
+}
+
+/* 4. See more btn */
+.see-more__btn {
+    display: flex;
+    justify-content: center;
+}
+
+.see-more__btn.see-more__btn--none {
+    display: none;
+}
+
+.see-more__btn>p {
+    border: 2px solid #f1f1f1;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.35s;
+    width: 120px;
+    text-align: center;
+    /* background-color: #7fba00; */
+}
+
+.see-more__btn>p:hover {
+    color: #fff;
+    background: #7fba00;
+}
+
+/* 5. Hide more btn */
+.hide-more__btn {
+    display: flex;
+    justify-content: center;
+}
+
+.hide-more__btn.hide-more__btn--none {
+    display: none;
+}
+
+.hide-more__btn>p {
+    border: 2px solid #f1f1f1;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.35s;
+    width: 120px;
+    text-align: center;
+}
+
+.hide-more__btn>p:hover {
+    color: #fff;
+    background: #7fba00;
+}
+
+/* Blog home */
+.lastest__blog {
+    padding: 36px 0;
+}
+
+.lastest__blog .lastest__blog__title {
+    padding: 24px 0;
+}
+
+.blog__list__wrapper:hover .blog__home__item {
+    filter: blur(5px);
+    transform: scale(.7);
+}
+
+.blog__home__item {
+    /* border: 1px solid #cccccc; */
+    width: 33%;
+    height: 263px;
+    position: relative;
+    background: url(../img/blog-6-890x620.jpg);
+    background-position: center;
+    background-size: cover;
+    padding: 12px;
+    transition: all .25s;
+}
+
+.blog__list__wrapper .blog__content {
+    z-index: 2;
+}
+
+.blog__list__wrapper .blog__home__item:hover {
+    filter: blur(0px);
+    transform: scale(1);
+    /* padding: 2px 0 */
+}
+
+
+.blog__date {
+    color: #b9b9b9;
+}
+
+.blog__title {
+    color: #000000;
+    font-size: 24px;
+    padding: 8px 0;
+}
+
+.blog__title:hover {
+    color: #7fba00;
+
+}
+
+.blog__desc {
+    width: 188px;
+    color: #b9b9b9;
+}
+
+.read__more__blog {
+    padding: 8px 0;
+}
+
+.read__more__blog>a {
+    color: #7fba00;
+    text-decoration: none;
+}

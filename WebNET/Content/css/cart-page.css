@@ -1,0 +1,123 @@
+.cart__body__wrapper {
+    width: 75%;
+}
+
+.cart__body__list table {
+    width: 100%;
+}
+
+.quantity__tablerow input {
+    width: 30px;
+    text-align: center;
+}
+
+.do__next {
+    padding: 24px 0;
+}
+
+.do__next>h6 {
+    font-weight: 600;
+}
+
+
+
+.coupon__code {
+    margin-bottom: 16px;
+}
+
+.coupon__code__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shipping__taxes__container,
+.coupon__code__container {
+    padding: 24px;
+}
+
+.enter__coupon {
+    width: 90px;
+}
+
+.input__coupon {
+    width: 420px;
+}
+
+.input__coupon>input {
+    width: 100%;
+    padding: 6px 12px;
+    border: 1px solid #e5e5e5;
+    border-radius: .25rem;
+}
+
+.apply__coupon__button>a {
+    background-color: #4d4d4d;
+    padding: 6px 12px;
+    color: white;
+    text-decoration: none;
+    transition: all .35s;
+    border-radius: .25rem;
+}
+
+.apply__coupon__button>a:hover {
+    background-color: #7fba00;
+}
+
+.province__container,
+.ward__container {
+    width: 100%;
+}
+
+
+
+.province__container>label,
+.ward__container>label,
+.coupon__codes>label {
+    width: 120px;
+}
+
+.province__container>select,
+.ward__container>select,
+.coupon__codes>input {
+    width: 600px;
+    border: 1px solid #e5e5e5;
+}
+
+.coupon__codes>input {
+    padding: 6px 12px;
+    border-radius: .25rem;
+}
+
+.shipping__taxes__container>div {
+    margin-bottom: 16px;
+}
+
+.apply__coupon__button.get__quotes>a {
+    border-radius: 50px;
+}
+
+.summarize {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.summarize table tr th,
+.summarize table tr td {
+    padding: 6px 12px;
+    width: 120px;
+}
+
+.checkout__cart {
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.continue__shopping.apply__coupon__button.get__quotes>a {
+    background-color: #7fba00;
+}
+
+.continue__shopping.apply__coupon__button.get__quotes>a:hover {
+    background-color: #4d4d4d;
+}

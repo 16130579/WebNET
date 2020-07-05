@@ -1,0 +1,170 @@
+.header__admin {
+  height: 80px;
+  background: url(../img/header-bkg.jpg);
+  padding: 8px 0;
+}
+
+input,
+select,
+option {
+  padding: 6px 12px;
+  border: 1px solid #e5e5e5;
+}
+
+.full__height {
+  height: 100%;
+}
+
+.admin__header__wrapper {
+  height: 100%;
+}
+
+.admin__logo {
+  height: 100%;
+}
+
+.admin__logo>img {
+  height: 100%;
+}
+
+.admin__role {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.admin__role>div:hover .admin__user__menu {
+  display: block;
+}
+
+.admin__user__menu {
+  display: none;
+  position: absolute;
+  padding: 4px 8px;
+  background-color: #666666;
+  z-index: 10;
+  border-radius: .35rem;
+  width: 80px;
+  color: white;
+  cursor: pointer;
+}
+
+.admin__user__menu:hover {
+  color: #7fba00;
+}
+
+/* ********************************* */
+.admin__content>div {
+  border: 1px solid #000;
+  height: calc(100vh - 80px);
+}
+
+.tab {
+  float: left;
+  border: 1px solid #e5e5e5;
+  background-color: #f1f1f1;
+
+  height: 100%;
+}
+
+.content__admin>div {
+  height: 100%;
+}
+
+.tab.none__padding,
+.content__admin.none__padding,
+.col-lg-4.none__padding {
+  padding: 0;
+  border: 1px solid #e5e5e5;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab>button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+
+.tablinks.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  float: left;
+  padding: 0px 12px;
+  border: 1px solid #e5e5e5;
+  width: 100%;
+  border-left: none;
+  height: 100%;
+}
+
+.tabcontent.active {
+  display: block;
+}
+
+/* ******************** */
+.search__wrapper {
+  padding: 20px;
+  margin: 0 16px;
+}
+
+.search__input {}
+
+.result {
+  height: 320px;
+  overflow: scroll;
+}
+
+#myInput {}
+
+.myTable {
+  border-collapse: collapse;
+  /* Collapse borders */
+  width: 100%;
+  /* Full-width */
+  border: 1px solid #ddd;
+  /* Add a grey border */
+  font-size: 18px;
+  /* Increase font-size */
+}
+
+.myTable th,
+#myTable td {
+  text-align: left;
+  /* Left-align text */
+  padding: 12px;
+  /* Add padding */
+  cursor: pointer;
+}
+
+.myTable tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: 1px solid #ddd;
+}
+
+.myTable tr.header__table,
+#myTable tr:hover {
+  /* Add a grey background color to the table header and on hover */
+  background-color: #f1f1f1;
+}
+
+select#categories,
+select#status {
+  width: 180px;
+}

@@ -1,0 +1,35 @@
+.delivery__container {
+    width: 100%;
+}
+
+.delivery__titles {
+    padding: 12px 0;
+}
+
+.sub__deli {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    margin: 30px 0 50px 0;
+}
+
+.deli__title {
+    font-weight: bold;
+    font-style: normal;
+    font-family: 'Open Sans', sans-serif;
+    color: #7fba00;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 0px;
+}
+
+.deli__content {
+    font-weight: 400;
+    font-style: normal;
+    font-family: 'Open Sans', sans-serif;
+    color: #5f5f5f;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0;
+    padding: 10px;
+}
