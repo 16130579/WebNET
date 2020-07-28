@@ -39,17 +39,17 @@ if (cartItem && cartContainer) {
 const productItem = document.querySelectorAll(".product-item");
 for (let i = 0; i < productItem.length; i++) {
   productItem[i].addEventListener("click", () => {
-      window.location.href = "ChiTietSanPham.cshtml";
-    // console.log("a");
+      window.location.href = 'asdasdasdasd.cshtml';
+     console.log("a");
   });
 }
 
 const viewCartButtonHeader = document.querySelector('#viewCartHeader');
 const checkoutButtonHeader = document.querySelector('#checkoutButtonHeader');
 viewCartButtonHeader.addEventListener('click', (e) => {
-  window.location.href = 'cart-page.html';
+  window.location.href = '';
 });
 
 checkoutButtonHeader.addEventListener('click', (e) => {
-  window.location.href = 'checkout.html';
+  window.location.href = '';
 });

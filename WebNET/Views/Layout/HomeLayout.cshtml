@@ -59,7 +59,7 @@
                     </div>
 
                     <div class="top-nav__logo">
-                        <a href="index.html">
+                        <a href="@Url.Action("Index", "Home", new {id = "TrangChu" })">
                             <img src="~/Content/img/logo.png" alt="Fram Fresh">
                         </a>
                     </div>
@@ -68,13 +68,19 @@
                         <ul class="user-login-search__ul">
                             <li class="search__header">
                                 <i class="fas fa-search" aria-hidden="true"></i>
-                                <div class="sub__input"><input type="text"></div>
+                                <div class="sub__input">
+                                    @*Tao form submit ve action tim kiem*@
+                                    @using (Html.BeginForm("KQTimKiem", "TimKiem")) {
+                                <input type="text" name="sTukhoa" placeholder="Nhập sản phẩm cần tìm">
+                                    }
+                                </div>
+
                             </li>
                             <li class="user">
                                 <i class="fas fa-user" aria-hidden="true"></i>
                                 <ul class="sub-menu">
-                                    <li><a href="register.html">Register</a></li>
-                                    <li><a href="login.html">Login</a></li>
+                                    <li><a href="@Url.Action("Register", "Register", new {id = "Register" })">Register</a></li>
+                                    <li><a href="@Url.Action("Login", "Login", new {id = "Login" })">Login</a></li>
                                 </ul>
                             </li>
                             <li id="clickCart">
@@ -208,500 +214,7 @@
         </section>
 
         @RenderBody()
-        @*<section class="main-content">
-            <div class="container">
-
-                <div class="main-content__container">
-
-                    <div class="categories-list__container">
-                        <ul class="categories-list" id="categoriesList">
-                            <li class="active">
-                                <a class="" href="">Lastest</a>
-                            </li>
-                            <li class="hvr-bounce-to-right"><a href="">Bestseller</a></li>
-                            <li class="hvr-bounce-to-right"><a href="">Special</a></li>
-                        </ul>
-                    </div>
-
-                    <div data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-duration="1500" class="product-list aos-init">
-                        <div class="product-list__container">
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="see-more__btn">
-                        <p id="seeMoreBtn">see more</p>
-                    </div>
-
-                    <div id="productList" class="product-list product-list__none">
-                        <div class="product-list__container">
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-                            <div class="product-item">
-                                <div class="product-item__image">
-                                    <img src="~/Content/img/06-275x275.jpg" alt="Guava">
-                                </div>
-
-                                <div class="product-item__content">
-                                    <p>Guava</p>
-                                    <p>
-                                        <strong>$120</strong>
-                                        <span class="price--line-through">$140</span>
-                                    </p>
-                                    <ul class="star-rank">
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
-                                    </ul>
-                                    <a class="add-to-cart__btn" href="#">add to cart</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="hide-more__btn hide-more__btn--none">
-                        <p id="hideMoreBtn">Hide</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>*@
-
+        
         <section class="customer__review">
             <div class="container">
                 <div class="customer__review__container">
@@ -710,7 +223,7 @@
                         <div class="review__description aos-init" data-aos="zoom-in-left" data-aos-duration="1700">
                             <div class="review__top">
                                 <div class="review__top__image">
-                                    <img src="img/46499158_906532309541687_735503026202083328_n.jpg" alt="">
+                                    <img src="~/Content/img/46499158_906532309541687_735503026202083328_n.jpg" alt="">
                                 </div>
                                 <div class="review__top__title">
                                     <p class="customer__name">Cường Nguyễn</p>
@@ -719,7 +232,7 @@
                             </div>
                             <div class="review__bottom">
                                 <div class="review__bottom__icon">
-                                    <img src="img/quote.png" alt="">
+                                    <img src="~/Content/img/quote.png" alt="">
                                 </div>
                                 <div class="review__bottom__description">
                                     <p>
@@ -734,7 +247,7 @@
                         <div class="review__description aos-init" data-aos="zoom-in-right" data-aos-duration="1900">
                             <div class="review__top">
                                 <div class="review__top__image">
-                                    <img src="img/46499158_906532309541687_735503026202083328_n.jpg" alt="">
+                                    <img src="~/Content/img/46499158_906532309541687_735503026202083328_n.jpg" alt="">
                                 </div>
                                 <div class="review__top__title">
                                     <p class="customer__name">Cường Nguyễn</p>
@@ -743,7 +256,7 @@
                             </div>
                             <div class="review__bottom">
                                 <div class="review__bottom__icon">
-                                    <img src="img/quote.png" alt="">
+                                    <img src="~/Content/img/quote.png" alt="">
                                 </div>
                                 <div class="review__bottom__description">
 
@@ -881,19 +394,19 @@
                     <div class="bank-card__list">
                         <ul class="bank-card__list__container">
                             <li>
-                                <div class="bank__image"><img src="img/visa.png" alt=""></div>
+                                <div class="bank__image"><img src="~/Content/img/visa.png" alt=""></div>
                             </li>
                             <li>
-                                <div class="bank__image"><img src="img/discover.png" alt=""></div>
+                                <div class="bank__image"><img src="~/Content/img/discover.png" alt=""></div>
                             </li>
                             <li>
-                                <div class="bank__image"><img src="img/american_express.png" alt=""></div>
+                                <div class="bank__image"><img src="~/Content/img/american_express.png" alt=""></div>
                             </li>
                             <li>
-                                <div class="bank__image"><img src="img/google_wallet.png" alt=""></div>
+                                <div class="bank__image"><img src="~/Content/img/google_wallet.png" alt=""></div>
                             </li>
                             <li>
-                                <div class="bank__image"><img src="img/paypal.png" alt=""></div>
+                                <div class="bank__image"><img src="~/Content/img/paypal.png" alt=""></div>
                             </li>
                         </ul>
                     </div>
@@ -908,8 +421,9 @@
         <p class="scroll-to-top__btn" id="scrollToTopBtn"><i class="fas fa-angle-up" aria-hidden="true"></i></p>
     </div>
     <!-- Javascript -->
-    <script src="~/Content/js/main.js"></script>
-    <script src="~/Content/js/home.js"></script>
+    @*<script src="~/Content/js/main.js"></script>
+    <script src="~/Content/js/productDetail.js"></script>
+    <script src="~/Content/js/home.js"></script>*@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
@@ -919,7 +433,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-    AOS.init();
+        AOS.init();
     </script>
 
 

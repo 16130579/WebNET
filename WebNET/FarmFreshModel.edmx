@@ -1,0 +1,791 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="farmfreshModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'farmfresh.dbo.addressdetail' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="addressdetail">
+          <Property Name="addressDetail_id" Type="varchar" MaxLength="100" />
+          <Property Name="addressDetail_address" Type="varchar" MaxLength="10" />
+          <Property Name="addressDetail_userId" Type="varchar" MaxLength="100" />
+          <Property Name="addressDetail_postCode" Type="int" />
+        </EntityType>-->
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="admin_name" Type="varchar" MaxLength="20" />
+          <Property Name="admin_password" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="blogs">
+          <Key>
+            <PropertyRef Name="blogs_id" />
+          </Key>
+          <Property Name="blogs_id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="blogs_createBy" Type="varchar" MaxLength="100" />
+          <Property Name="blogs_title" Type="varchar" MaxLength="200" />
+          <Property Name="blogs_image" Type="varchar" MaxLength="200" />
+          <Property Name="blogs_createAt" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="blog_content" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="category_title" Type="varchar" MaxLength="100" />
+          <Property Name="category_createBy" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="district">
+          <Key>
+            <PropertyRef Name="district_id" />
+          </Key>
+          <Property Name="district_id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="district_title" Type="varchar" MaxLength="30" />
+          <Property Name="district_provinceId" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="orderitem">
+          <Key>
+            <PropertyRef Name="orderItem_id" />
+          </Key>
+          <Property Name="orderItem_id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="orderItem_ordersId" Type="varchar" MaxLength="100" />
+          <Property Name="orderItem_productId" Type="varchar" MaxLength="100" />
+          <Property Name="orderItem_quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="orders">
+          <Key>
+            <PropertyRef Name="orders_id" />
+          </Key>
+          <Property Name="orders_id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="orders_userId" Type="varchar" MaxLength="100" />
+          <Property Name="orders_shippingAddress" Type="varchar" MaxLength="100" />
+          <Property Name="orders_status" Type="tinyint" />
+          <Property Name="orders_register" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="paragraph">
+          <Key>
+            <PropertyRef Name="paragraph_id" />
+          </Key>
+          <Property Name="paragraph_id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="paragraph_title" Type="varchar(max)" />
+          <Property Name="paragraph_content" Type="varchar(max)" />
+          <Property Name="paragraph_blogsId" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="product_name" Type="varchar" MaxLength="30" />
+          <Property Name="product_image" Type="varchar" MaxLength="255" />
+          <Property Name="product_price" Type="int" />
+          <Property Name="product_salePrice" Type="int" />
+          <Property Name="product_categoryId" Type="varchar" MaxLength="100" />
+          <Property Name="product_createBy" Type="varchar" MaxLength="100" />
+          <Property Name="product_createAt" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="product_quantity" Type="int" />
+          <Property Name="product_description" Type="varchar(max)" />
+          <Property Name="product_status" Type="int" />
+        </EntityType>
+        <EntityType Name="provice">
+          <Key>
+            <PropertyRef Name="province_id" />
+          </Key>
+          <Property Name="province_id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="province_title" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="review">
+          <Key>
+            <PropertyRef Name="review_id" />
+          </Key>
+          <Property Name="review_id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="review_createBy" Type="varchar" MaxLength="100" />
+          <Property Name="review_createAt" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="review_ratingStar" Type="int" />
+          <Property Name="review_content" Type="varchar(max)" />
+          <Property Name="review_productId" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="user_firstName" Type="varchar" MaxLength="40" />
+          <Property Name="user_lastName" Type="varchar" MaxLength="40" />
+          <Property Name="user_fullName" Type="varchar" MaxLength="80" />
+          <Property Name="user_email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="user_password" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="user_phone" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+error 6004: The table 'farmfresh.dbo.addressdetail' is referenced by a relationship, but cannot be found.
+        <Association Name="fk_addressDetail" />-->
+        <Association Name="fk_blog">
+          <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+          <End Role="blogs" Type="Self.blogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="admin_id" />
+            </Principal>
+            <Dependent Role="blogs">
+              <PropertyRef Name="blogs_createBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_category">
+          <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+          <End Role="category" Type="Self.category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="admin_id" />
+            </Principal>
+            <Dependent Role="category">
+              <PropertyRef Name="category_createBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_district">
+          <End Role="district" Type="Self.district" Multiplicity="0..1" />
+          <End Role="district1" Type="Self.district" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="district">
+              <PropertyRef Name="district_id" />
+            </Principal>
+            <Dependent Role="district1">
+              <PropertyRef Name="district_provinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_orders">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="orders" Type="Self.orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="orders">
+              <PropertyRef Name="orders_userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_paragrap">
+          <End Role="blogs" Type="Self.blogs" Multiplicity="0..1" />
+          <End Role="paragraph" Type="Self.paragraph" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="blogs">
+              <PropertyRef Name="blogs_id" />
+            </Principal>
+            <Dependent Role="paragraph">
+              <PropertyRef Name="paragraph_blogsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk01_orderItem">
+          <End Role="orders" Type="Self.orders" Multiplicity="0..1" />
+          <End Role="orderitem" Type="Self.orderitem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orders">
+              <PropertyRef Name="orders_id" />
+            </Principal>
+            <Dependent Role="orderitem">
+              <PropertyRef Name="orderItem_ordersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk01_product">
+          <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="admin_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="product_createBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk01_review">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="review" Type="Self.review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="review">
+              <PropertyRef Name="review_createBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk02_orderItem">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="orderitem" Type="Self.orderitem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="orderitem">
+              <PropertyRef Name="orderItem_productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk02_product">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="product_categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk02_review">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="review" Type="Self.review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="review">
+              <PropertyRef Name="review_productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="farmfreshModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="blogs" EntityType="Self.blogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="district" EntityType="Self.district" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orderitem" EntityType="Self.orderitem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orders" EntityType="Self.orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paragraph" EntityType="Self.paragraph" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="provice" EntityType="Self.provice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="review" EntityType="Self.review" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_blog" Association="Self.fk_blog">
+            <End Role="admin" EntitySet="admin" />
+            <End Role="blogs" EntitySet="blogs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_category" Association="Self.fk_category">
+            <End Role="admin" EntitySet="admin" />
+            <End Role="category" EntitySet="category" />
+          </AssociationSet>
+          <AssociationSet Name="fk_district" Association="Self.fk_district">
+            <End Role="district" EntitySet="district" />
+            <End Role="district1" EntitySet="district" />
+          </AssociationSet>
+          <AssociationSet Name="fk_orders" Association="Self.fk_orders">
+            <End Role="user" EntitySet="user" />
+            <End Role="orders" EntitySet="orders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_paragrap" Association="Self.fk_paragrap">
+            <End Role="blogs" EntitySet="blogs" />
+            <End Role="paragraph" EntitySet="paragraph" />
+          </AssociationSet>
+          <AssociationSet Name="fk01_orderItem" Association="Self.fk01_orderItem">
+            <End Role="orders" EntitySet="orders" />
+            <End Role="orderitem" EntitySet="orderitem" />
+          </AssociationSet>
+          <AssociationSet Name="fk01_product" Association="Self.fk01_product">
+            <End Role="admin" EntitySet="admin" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="fk01_review" Association="Self.fk01_review">
+            <End Role="user" EntitySet="user" />
+            <End Role="review" EntitySet="review" />
+          </AssociationSet>
+          <AssociationSet Name="fk02_orderItem" Association="Self.fk02_orderItem">
+            <End Role="product" EntitySet="product" />
+            <End Role="orderitem" EntitySet="orderitem" />
+          </AssociationSet>
+          <AssociationSet Name="fk02_product" Association="Self.fk02_product">
+            <End Role="category" EntitySet="category" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="fk02_review" Association="Self.fk02_review">
+            <End Role="product" EntitySet="product" />
+            <End Role="review" EntitySet="review" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="farmfreshModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="admin_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="admin_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="blogs" Relationship="Self.fk_blog" FromRole="admin" ToRole="blogs" />
+          <NavigationProperty Name="categories" Relationship="Self.fk_category" FromRole="admin" ToRole="category" />
+          <NavigationProperty Name="products" Relationship="Self.fk01_product" FromRole="admin" ToRole="product" />
+        </EntityType>
+        <EntityType Name="blog">
+          <Key>
+            <PropertyRef Name="blogs_id" />
+          </Key>
+          <Property Name="blogs_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="blogs_createBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="blogs_title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="blogs_image" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="blogs_createAt" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="blog_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="admin" Relationship="Self.fk_blog" FromRole="blogs" ToRole="admin" />
+          <NavigationProperty Name="paragraphs" Relationship="Self.fk_paragrap" FromRole="blogs" ToRole="paragraph" />
+        </EntityType>
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="category_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="category_createBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="admin" Relationship="Self.fk_category" FromRole="category" ToRole="admin" />
+          <NavigationProperty Name="products" Relationship="Self.fk02_product" FromRole="category" ToRole="product" />
+        </EntityType>
+        <EntityType Name="district">
+          <Key>
+            <PropertyRef Name="district_id" />
+          </Key>
+          <Property Name="district_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="district_title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="district_provinceId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="district1" Relationship="Self.fk_district" FromRole="district" ToRole="district1" />
+          <NavigationProperty Name="district2" Relationship="Self.fk_district" FromRole="district1" ToRole="district" />
+        </EntityType>
+        <EntityType Name="orderitem">
+          <Key>
+            <PropertyRef Name="orderItem_id" />
+          </Key>
+          <Property Name="orderItem_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="orderItem_ordersId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="orderItem_productId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="orderItem_quantity" Type="Int32" />
+          <NavigationProperty Name="order" Relationship="Self.fk01_orderItem" FromRole="orderitem" ToRole="orders" />
+          <NavigationProperty Name="product" Relationship="Self.fk02_orderItem" FromRole="orderitem" ToRole="product" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="orders_id" />
+          </Key>
+          <Property Name="orders_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="orders_userId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="orders_shippingAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="orders_status" Type="Byte" />
+          <Property Name="orders_register" Type="Byte" />
+          <NavigationProperty Name="orderitems" Relationship="Self.fk01_orderItem" FromRole="orders" ToRole="orderitem" />
+          <NavigationProperty Name="user" Relationship="Self.fk_orders" FromRole="orders" ToRole="user" />
+        </EntityType>
+        <EntityType Name="paragraph">
+          <Key>
+            <PropertyRef Name="paragraph_id" />
+          </Key>
+          <Property Name="paragraph_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="paragraph_title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="paragraph_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="paragraph_blogsId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="blog" Relationship="Self.fk_paragrap" FromRole="paragraph" ToRole="blogs" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="product_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="product_image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="product_price" Type="Int32" />
+          <Property Name="product_salePrice" Type="Int32" />
+          <Property Name="product_categoryId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="product_createBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="product_createAt" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="product_quantity" Type="Int32" />
+          <Property Name="product_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="product_status" Type="Int32" />
+          <NavigationProperty Name="admin" Relationship="Self.fk01_product" FromRole="product" ToRole="admin" />
+          <NavigationProperty Name="category" Relationship="Self.fk02_product" FromRole="product" ToRole="category" />
+          <NavigationProperty Name="orderitems" Relationship="Self.fk02_orderItem" FromRole="product" ToRole="orderitem" />
+          <NavigationProperty Name="reviews" Relationship="Self.fk02_review" FromRole="product" ToRole="review" />
+        </EntityType>
+        <EntityType Name="provice">
+          <Key>
+            <PropertyRef Name="province_id" />
+          </Key>
+          <Property Name="province_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="province_title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="review">
+          <Key>
+            <PropertyRef Name="review_id" />
+          </Key>
+          <Property Name="review_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="review_createBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="review_createAt" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="review_ratingStar" Type="Int32" />
+          <Property Name="review_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="review_productId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="product" Relationship="Self.fk02_review" FromRole="review" ToRole="product" />
+          <NavigationProperty Name="user" Relationship="Self.fk01_review" FromRole="review" ToRole="user" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_firstName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="user_lastName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="user_fullName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="user_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_password" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="orders" Relationship="Self.fk_orders" FromRole="user" ToRole="orders" />
+          <NavigationProperty Name="reviews" Relationship="Self.fk01_review" FromRole="user" ToRole="review" />
+        </EntityType>
+        <Association Name="fk_blog">
+          <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+          <End Role="blogs" Type="Self.blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="admin_id" />
+            </Principal>
+            <Dependent Role="blogs">
+              <PropertyRef Name="blogs_createBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_category">
+          <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+          <End Role="category" Type="Self.category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="admin_id" />
+            </Principal>
+            <Dependent Role="category">
+              <PropertyRef Name="category_createBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk01_product">
+          <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="admin_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="product_createBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_paragrap">
+          <End Role="blogs" Type="Self.blog" Multiplicity="0..1" />
+          <End Role="paragraph" Type="Self.paragraph" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="blogs">
+              <PropertyRef Name="blogs_id" />
+            </Principal>
+            <Dependent Role="paragraph">
+              <PropertyRef Name="paragraph_blogsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk02_product">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="product_categoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_district">
+          <End Role="district" Type="Self.district" Multiplicity="0..1" />
+          <End Role="district1" Type="Self.district" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="district">
+              <PropertyRef Name="district_id" />
+            </Principal>
+            <Dependent Role="district1">
+              <PropertyRef Name="district_provinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk01_orderItem">
+          <End Role="orders" Type="Self.order" Multiplicity="0..1" />
+          <End Role="orderitem" Type="Self.orderitem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orders">
+              <PropertyRef Name="orders_id" />
+            </Principal>
+            <Dependent Role="orderitem">
+              <PropertyRef Name="orderItem_ordersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk02_orderItem">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="orderitem" Type="Self.orderitem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="orderitem">
+              <PropertyRef Name="orderItem_productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_orders">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="orders" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="orders">
+              <PropertyRef Name="orders_userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk02_review">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="review" Type="Self.review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="product_id" />
+            </Principal>
+            <Dependent Role="review">
+              <PropertyRef Name="review_productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk01_review">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="review" Type="Self.review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="review">
+              <PropertyRef Name="review_createBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="farmfreshEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admins" EntityType="Self.admin" />
+          <EntitySet Name="blogs" EntityType="Self.blog" />
+          <EntitySet Name="categories" EntityType="Self.category" />
+          <EntitySet Name="districts" EntityType="Self.district" />
+          <EntitySet Name="orderitems" EntityType="Self.orderitem" />
+          <EntitySet Name="orders" EntityType="Self.order" />
+          <EntitySet Name="paragraphs" EntityType="Self.paragraph" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="provices" EntityType="Self.provice" />
+          <EntitySet Name="reviews" EntityType="Self.review" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <AssociationSet Name="fk_blog" Association="Self.fk_blog">
+            <End Role="admin" EntitySet="admins" />
+            <End Role="blogs" EntitySet="blogs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_category" Association="Self.fk_category">
+            <End Role="admin" EntitySet="admins" />
+            <End Role="category" EntitySet="categories" />
+          </AssociationSet>
+          <AssociationSet Name="fk01_product" Association="Self.fk01_product">
+            <End Role="admin" EntitySet="admins" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="fk_paragrap" Association="Self.fk_paragrap">
+            <End Role="blogs" EntitySet="blogs" />
+            <End Role="paragraph" EntitySet="paragraphs" />
+          </AssociationSet>
+          <AssociationSet Name="fk02_product" Association="Self.fk02_product">
+            <End Role="category" EntitySet="categories" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="fk_district" Association="Self.fk_district">
+            <End Role="district" EntitySet="districts" />
+            <End Role="district1" EntitySet="districts" />
+          </AssociationSet>
+          <AssociationSet Name="fk01_orderItem" Association="Self.fk01_orderItem">
+            <End Role="orders" EntitySet="orders" />
+            <End Role="orderitem" EntitySet="orderitems" />
+          </AssociationSet>
+          <AssociationSet Name="fk02_orderItem" Association="Self.fk02_orderItem">
+            <End Role="product" EntitySet="products" />
+            <End Role="orderitem" EntitySet="orderitems" />
+          </AssociationSet>
+          <AssociationSet Name="fk_orders" Association="Self.fk_orders">
+            <End Role="user" EntitySet="users" />
+            <End Role="orders" EntitySet="orders" />
+          </AssociationSet>
+          <AssociationSet Name="fk02_review" Association="Self.fk02_review">
+            <End Role="product" EntitySet="products" />
+            <End Role="review" EntitySet="reviews" />
+          </AssociationSet>
+          <AssociationSet Name="fk01_review" Association="Self.fk01_review">
+            <End Role="user" EntitySet="users" />
+            <End Role="review" EntitySet="reviews" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="farmfreshModelStoreContainer" CdmEntityContainer="farmfreshEntities">
+          <EntitySetMapping Name="admins">
+            <EntityTypeMapping TypeName="farmfreshModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+                <ScalarProperty Name="admin_name" ColumnName="admin_name" />
+                <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="blogs">
+            <EntityTypeMapping TypeName="farmfreshModel.blog">
+              <MappingFragment StoreEntitySet="blogs">
+                <ScalarProperty Name="blogs_id" ColumnName="blogs_id" />
+                <ScalarProperty Name="blogs_createBy" ColumnName="blogs_createBy" />
+                <ScalarProperty Name="blogs_title" ColumnName="blogs_title" />
+                <ScalarProperty Name="blogs_image" ColumnName="blogs_image" />
+                <ScalarProperty Name="blogs_createAt" ColumnName="blogs_createAt" />
+                <ScalarProperty Name="blog_content" ColumnName="blog_content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="farmfreshModel.category">
+              <MappingFragment StoreEntitySet="category">
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="category_title" ColumnName="category_title" />
+                <ScalarProperty Name="category_createBy" ColumnName="category_createBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="districts">
+            <EntityTypeMapping TypeName="farmfreshModel.district">
+              <MappingFragment StoreEntitySet="district">
+                <ScalarProperty Name="district_id" ColumnName="district_id" />
+                <ScalarProperty Name="district_title" ColumnName="district_title" />
+                <ScalarProperty Name="district_provinceId" ColumnName="district_provinceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderitems">
+            <EntityTypeMapping TypeName="farmfreshModel.orderitem">
+              <MappingFragment StoreEntitySet="orderitem">
+                <ScalarProperty Name="orderItem_id" ColumnName="orderItem_id" />
+                <ScalarProperty Name="orderItem_ordersId" ColumnName="orderItem_ordersId" />
+                <ScalarProperty Name="orderItem_productId" ColumnName="orderItem_productId" />
+                <ScalarProperty Name="orderItem_quantity" ColumnName="orderItem_quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orders">
+            <EntityTypeMapping TypeName="farmfreshModel.order">
+              <MappingFragment StoreEntitySet="orders">
+                <ScalarProperty Name="orders_id" ColumnName="orders_id" />
+                <ScalarProperty Name="orders_userId" ColumnName="orders_userId" />
+                <ScalarProperty Name="orders_shippingAddress" ColumnName="orders_shippingAddress" />
+                <ScalarProperty Name="orders_status" ColumnName="orders_status" />
+                <ScalarProperty Name="orders_register" ColumnName="orders_register" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paragraphs">
+            <EntityTypeMapping TypeName="farmfreshModel.paragraph">
+              <MappingFragment StoreEntitySet="paragraph">
+                <ScalarProperty Name="paragraph_id" ColumnName="paragraph_id" />
+                <ScalarProperty Name="paragraph_title" ColumnName="paragraph_title" />
+                <ScalarProperty Name="paragraph_content" ColumnName="paragraph_content" />
+                <ScalarProperty Name="paragraph_blogsId" ColumnName="paragraph_blogsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="farmfreshModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_image" ColumnName="product_image" />
+                <ScalarProperty Name="product_price" ColumnName="product_price" />
+                <ScalarProperty Name="product_salePrice" ColumnName="product_salePrice" />
+                <ScalarProperty Name="product_categoryId" ColumnName="product_categoryId" />
+                <ScalarProperty Name="product_createBy" ColumnName="product_createBy" />
+                <ScalarProperty Name="product_createAt" ColumnName="product_createAt" />
+                <ScalarProperty Name="product_quantity" ColumnName="product_quantity" />
+                <ScalarProperty Name="product_description" ColumnName="product_description" />
+                <ScalarProperty Name="product_status" ColumnName="product_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="provices">
+            <EntityTypeMapping TypeName="farmfreshModel.provice">
+              <MappingFragment StoreEntitySet="provice">
+                <ScalarProperty Name="province_id" ColumnName="province_id" />
+                <ScalarProperty Name="province_title" ColumnName="province_title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reviews">
+            <EntityTypeMapping TypeName="farmfreshModel.review">
+              <MappingFragment StoreEntitySet="review">
+                <ScalarProperty Name="review_id" ColumnName="review_id" />
+                <ScalarProperty Name="review_createBy" ColumnName="review_createBy" />
+                <ScalarProperty Name="review_createAt" ColumnName="review_createAt" />
+                <ScalarProperty Name="review_ratingStar" ColumnName="review_ratingStar" />
+                <ScalarProperty Name="review_content" ColumnName="review_content" />
+                <ScalarProperty Name="review_productId" ColumnName="review_productId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="farmfreshModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_firstName" ColumnName="user_firstName" />
+                <ScalarProperty Name="user_lastName" ColumnName="user_lastName" />
+                <ScalarProperty Name="user_fullName" ColumnName="user_fullName" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
+                <ScalarProperty Name="user_phone" ColumnName="user_phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,61 @@
+﻿@using WebNET.Models;
+@model IEnumerable<product>
+@{
+    ViewBag.Title = "KQTimkiem";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+
+    <section class="main-content">
+        <div class="container">
+
+            <div class="main-content__container">
+
+                <div class="categories-list__container">
+                    <ul class="categories-list" id="categoriesList">
+                        <li class="active">
+                            <a class="" href="">Lastest</a>
+                        </li>
+                        <li class="hvr-bounce-to-right"><a href="">Bestselle</a></li>
+                        <li class="hvr-bounce-to-right"><a href="">Special</a></li>
+                    </ul>
+                </div>
+
+                <div data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-duration="1500" class="product-list aos-init">
+                    <div class="product-list__container">
+                        @foreach (var item in Model)
+                        {
+
+                            <div class="product-item">
+
+                                <div class="product-item__image">
+                                    <a href="@Url.Action("ChiTietSanPham", "Home", new { id = "Detail" })">
+                                        <img src="@Url.Content("~/Content/"+item.product_image)" alt="Guava" width="200px" height="200px">
+                                    </a>
+                                </div>
+
+                                <div class="product-item__content">
+                                    <p>@item.product_name</p>
+                                    <p>
+                                        <strong>$120</strong>
+                                        <span class="price--line-through">$140</span>
+                                    </p>
+                                    <ul class="star-rank">
+                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
+                                        <li><i class="fas fa-star" aria-hidden="true"></i></li>
+                                    </ul>
+                                    <a class="add-to-cart__btn" href="#">add to cart</a>
+                                </div>
+
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+

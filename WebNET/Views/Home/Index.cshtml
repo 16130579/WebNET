@@ -1,7 +1,12 @@
-﻿
+﻿@using WebNET.Models;
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Layout/HomeLayout.cshtml";
 }
+@{ IEnumerable<product> listsp = (IEnumerable<product>)ViewBag.listsp;}
+@*@Url.Action("ChiTietSanPham", "Home", new { id = "Detail" })*@
 
-@Html.Partial("~/Views/SanPham/SanPhamPartial.cshtml")
+@Html.Partial("~/Views/SanPham/SanPhamPartial.cshtml", listsp);
+
+
