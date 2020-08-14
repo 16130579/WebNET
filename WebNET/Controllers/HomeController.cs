@@ -23,5 +23,18 @@ namespace WebNET.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult DangKy()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DangKy(user tv, FormCollection f)
+        {
+            //Them vao csdl
+            db.users.Add(tv);
+            db.SaveChanges();
+            return View();
+        }
     }
 }

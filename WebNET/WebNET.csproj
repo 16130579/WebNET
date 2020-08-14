@@ -241,6 +241,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
@@ -300,6 +301,38 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Acss\bootstrap.css" />
+    <Content Include="Content\Acss\clndr.css" />
+    <Content Include="Content\Acss\jqvmap.css" />
+    <Content Include="Content\Acss\nav.css" />
+    <Content Include="Content\Acss\style.css" />
+    <Content Include="Content\Aimages\ar2.png" />
+    <Content Include="Content\Aimages\arrows.png" />
+    <Content Include="Content\Aimages\avatar.jpg" />
+    <Content Include="Content\Aimages\avatar1.jpg" />
+    <Content Include="Content\Aimages\avatar2.jpg" />
+    <Content Include="Content\Aimages\img-sprite.png" />
+    <Content Include="Content\Aimages\into.png" />
+    <Content Include="Content\Aimages\into1.png" />
+    <Content Include="Content\Aimages\logo.png" />
+    <Content Include="Content\Aimages\pp.jpg" />
+    <Content Include="Content\Aimages\pp0.jpg" />
+    <Content Include="Content\Aimages\pp01.jpg" />
+    <Content Include="Content\Aimages\settings.png" />
+    <Content Include="Content\Aimages\tick-mark.png" />
+    <Content Include="Content\Ajs\Chart1.js" />
+    <Content Include="Content\Ajs\clndr.js" />
+    <Content Include="Content\Ajs\easyResponsiveTabs.js" />
+    <Content Include="Content\Ajs\jquery.easydropdown.js" />
+    <Content Include="Content\Ajs\jquery.min.js" />
+    <Content Include="Content\Ajs\jquery.nicescroll.js" />
+    <Content Include="Content\Ajs\jquery.vmap.js" />
+    <Content Include="Content\Ajs\jquery.vmap.sampledata.js" />
+    <Content Include="Content\Ajs\jquery.vmap.world.js" />
+    <Content Include="Content\Ajs\main.js" />
+    <Content Include="Content\Ajs\moment-2.2.1.js" />
+    <Content Include="Content\Ajs\site.js" />
+    <Content Include="Content\Ajs\underscore-min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -508,6 +541,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="SQLQueryDB.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -527,6 +561,8 @@
     <Content Include="Views\Register\Register.cshtml" />
     <Content Include="Views\Home\ChiTietSanPham.cshtml" />
     <Content Include="Views\TimKiem\KQTimkiem.cshtml" />
+    <Content Include="Views\Home\DangKy.cshtml" />
+    <Content Include="Views\Admin\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
