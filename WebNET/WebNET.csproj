@@ -251,52 +251,49 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\admin.cs">
-      <DependentUpon>QuanLyBanHang.tt</DependentUpon>
+      <DependentUpon>farmfresh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\blog.cs">
-      <DependentUpon>QuanLyBanHang.tt</DependentUpon>
+      <DependentUpon>farmfresh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\category.cs">
-      <DependentUpon>QuanLyBanHang.tt</DependentUpon>
+      <DependentUpon>farmfresh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\district.cs">
-      <DependentUpon>QuanLyBanHang.tt</DependentUpon>
+      <DependentUpon>farmfresh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\farmfresh.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>farmfresh.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\farmfresh.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>farmfresh.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\farmfresh.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>farmfresh.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\order.cs">
-      <DependentUpon>QuanLyBanHang.tt</DependentUpon>
+      <DependentUpon>farmfresh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\orderitem.cs">
-      <DependentUpon>QuanLyBanHang.tt</DependentUpon>
+      <DependentUpon>farmfresh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\paragraph.cs">
-      <DependentUpon>QuanLyBanHang.tt</DependentUpon>
+      <DependentUpon>farmfresh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\product.cs">
-      <DependentUpon>QuanLyBanHang.tt</DependentUpon>
+      <DependentUpon>farmfresh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\provice.cs">
-      <DependentUpon>QuanLyBanHang.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuanLyBanHang.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyBanHang.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuanLyBanHang.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyBanHang.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuanLyBanHang.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyBanHang.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\review.cs">
-      <DependentUpon>QuanLyBanHang.tt</DependentUpon>
+      <DependentUpon>farmfresh.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user.cs">
-      <DependentUpon>QuanLyBanHang.tt</DependentUpon>
+      <DependentUpon>farmfresh.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -503,23 +500,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\QuanLyBanHang.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLyBanHang.edmx</DependentUpon>
-      <LastGenOutput>QuanLyBanHang.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\QuanLyBanHang.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLyBanHang.edmx</DependentUpon>
-      <LastGenOutput>QuanLyBanHang.cs</LastGenOutput>
-    </Content>
-    <EntityDeploy Include="Models\QuanLyBanHang.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuanLyBanHang.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\QuanLyBanHang.edmx.diagram">
-      <DependentUpon>QuanLyBanHang.edmx</DependentUpon>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -528,7 +508,24 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <EntityDeploy Include="Models\farmfresh.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>farmfresh.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\farmfresh.edmx.diagram">
+      <DependentUpon>farmfresh.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Models\farmfresh.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>farmfresh.edmx</DependentUpon>
+      <LastGenOutput>farmfresh.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\farmfresh.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>farmfresh.edmx</DependentUpon>
+      <LastGenOutput>farmfresh.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

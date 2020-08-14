@@ -14,9 +14,9 @@ namespace WebNET.Models
     
     public partial class orderitem
     {
-        public string orderItem_id { get; set; }
-        public string orderItem_ordersId { get; set; }
-        public string orderItem_productId { get; set; }
+        public int orderItem_id { get; set; }
+        public Nullable<int> orderItem_ordersId { get; set; }
+        public Nullable<int> orderItem_productId { get; set; }
         public Nullable<int> orderItem_quantity { get; set; }
     
         public virtual order order { get; set; }

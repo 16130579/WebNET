@@ -20,8 +20,8 @@ namespace WebNET.Models
             this.orderitems = new HashSet<orderitem>();
         }
     
-        public string orders_id { get; set; }
-        public string orders_userId { get; set; }
+        public int orders_id { get; set; }
+        public Nullable<int> orders_userId { get; set; }
         public string orders_shippingAddress { get; set; }
         public Nullable<byte> orders_status { get; set; }
         public Nullable<byte> orders_register { get; set; }

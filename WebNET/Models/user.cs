@@ -18,10 +18,9 @@ namespace WebNET.Models
         public user()
         {
             this.orders = new HashSet<order>();
-            this.reviews = new HashSet<review>();
         }
     
-        public string user_id { get; set; }
+        public int user_id { get; set; }
         public string user_firstName { get; set; }
         public string user_lastName { get; set; }
         public string user_fullName { get; set; }
@@ -31,7 +30,5 @@ namespace WebNET.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<order> orders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<review> reviews { get; set; }
     }
 }

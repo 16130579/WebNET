@@ -18,17 +18,16 @@ namespace WebNET.Models
         public product()
         {
             this.orderitems = new HashSet<orderitem>();
-            this.reviews = new HashSet<review>();
         }
     
-        public string product_id { get; set; }
+        public int product_id { get; set; }
         public string product_name { get; set; }
         public string product_image { get; set; }
         public Nullable<int> product_price { get; set; }
         public Nullable<int> product_salePrice { get; set; }
         public string product_categoryId { get; set; }
         public string product_createBy { get; set; }
-        public byte[] product_createAt { get; set; }
+        public Nullable<System.DateTime> product_createAt { get; set; }
         public Nullable<int> product_quantity { get; set; }
         public string product_description { get; set; }
         public Nullable<int> product_status { get; set; }
@@ -37,7 +36,5 @@ namespace WebNET.Models
         public virtual category category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<orderitem> orderitems { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<review> reviews { get; set; }
     }
 }
