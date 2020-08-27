@@ -559,7 +559,9 @@
     <Content Include="Views\Home\ChiTietSanPham.cshtml" />
     <Content Include="Views\TimKiem\KQTimkiem.cshtml" />
     <Content Include="Views\Home\DangKy.cshtml" />
-    <Content Include="Views\Admin\Admin.cshtml" />
+    <Content Include="Views\Layout\AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\TaoMoi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

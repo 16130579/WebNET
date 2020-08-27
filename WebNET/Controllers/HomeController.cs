@@ -19,8 +19,14 @@ namespace WebNET.Controllers
             ViewBag.listsp = listspM;
             return View();
         }
-        public ActionResult ChiTietSanPham()
+        public ActionResult ChiTietSanPham(int id)
         {
+            product product = db.products.Find(id);
+            ViewBag.name = product.product_name;
+            ViewBag.img = product.product_image;
+            ViewBag.price = product.product_price;
+            ViewBag.des = product.product_description;
+          
             return View();
         }
         [HttpGet]
