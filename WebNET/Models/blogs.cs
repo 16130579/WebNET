@@ -12,12 +12,12 @@ namespace WebNET.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class blog
+    public partial class blogs
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public blog()
+        public blogs()
         {
-            this.paragraphs = new HashSet<paragraph>();
+            this.paragraph = new HashSet<paragraph>();
         }
     
         public string blogs_id { get; set; }
@@ -29,6 +29,6 @@ namespace WebNET.Models
     
         public virtual admin admin { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<paragraph> paragraphs { get; set; }
+        public virtual ICollection<paragraph> paragraph { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace WebNET.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public product()
         {
-            this.orderitems = new HashSet<orderitem>();
+            this.orderitem = new HashSet<orderitem>();
         }
     
         public int product_id { get; set; }
@@ -32,9 +32,7 @@ namespace WebNET.Models
         public string product_description { get; set; }
         public Nullable<int> product_status { get; set; }
     
-        public virtual admin admin { get; set; }
-        public virtual category category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<orderitem> orderitems { get; set; }
+        public virtual ICollection<orderitem> orderitem { get; set; }
     }
 }

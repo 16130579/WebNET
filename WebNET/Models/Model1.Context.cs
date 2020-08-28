@@ -25,15 +25,15 @@ namespace WebNET.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<admin> admins { get; set; }
-        public virtual DbSet<blog> blogs { get; set; }
-        public virtual DbSet<category> categories { get; set; }
-        public virtual DbSet<district> districts { get; set; }
-        public virtual DbSet<orderitem> orderitems { get; set; }
-        public virtual DbSet<order> orders { get; set; }
-        public virtual DbSet<paragraph> paragraphs { get; set; }
-        public virtual DbSet<product> products { get; set; }
-        public virtual DbSet<provice> provices { get; set; }
-        public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<admin> admin { get; set; }
+        public virtual DbSet<blogs> blogs { get; set; }
+        public virtual DbSet<category> category { get; set; }
+        public virtual DbSet<district> district { get; set; }
+        public virtual DbSet<orderitem> orderitem { get; set; }
+        public virtual DbSet<orders> orders { get; set; }
+        public virtual DbSet<paragraph> paragraph { get; set; }
+        public virtual DbSet<product> product { get; set; }
+        public virtual DbSet<provice> provice { get; set; }
+        public virtual DbSet<user> user { get; set; }
     }
 }

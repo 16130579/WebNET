@@ -14,18 +14,10 @@ namespace WebNET.Models
     
     public partial class category
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public category()
-        {
-            this.products = new HashSet<product>();
-        }
-    
         public string category_id { get; set; }
         public string category_title { get; set; }
         public string category_createBy { get; set; }
     
         public virtual admin admin { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<product> products { get; set; }
     }
 }

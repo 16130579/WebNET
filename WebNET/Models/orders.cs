@@ -12,22 +12,22 @@ namespace WebNET.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class order
+    public partial class orders
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public order()
+        public orders()
         {
-            this.orderitems = new HashSet<orderitem>();
+            this.orderitem = new HashSet<orderitem>();
         }
     
-        public int orders_id { get; set; }
+        public string orders_id { get; set; }
         public Nullable<int> orders_userId { get; set; }
         public string orders_shippingAddress { get; set; }
         public Nullable<byte> orders_status { get; set; }
         public Nullable<byte> orders_register { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<orderitem> orderitems { get; set; }
+        public virtual ICollection<orderitem> orderitem { get; set; }
         public virtual user user { get; set; }
     }
 }

@@ -14,21 +14,21 @@ namespace WebNET.Controllers
         farmfreshEntities db = new farmfreshEntities();
         public ActionResult Index()
         {
-            return View(db.products);
+            return View(db.product);
         }
         [HttpGet]
         public ActionResult TaoMoi()
         {
-            ViewBag.product_categoryId = new SelectList(db.categories.OrderBy(n => n.category_id), "category_id", "category_title");
-            ViewBag.product_createBy = new SelectList(db.admins.OrderBy(n => n.admin_id), "admin_id", "admin_name");
+            ViewBag.product_categoryId = new SelectList(db.category.OrderBy(n => n.category_id), "category_id", "category_title");
+            ViewBag.product_createBy = new SelectList(db.admin.OrderBy(n => n.admin_id), "admin_id", "admin_name");
             return View();
         }
         [ValidateInput(false)]
         [HttpPost]
         public ActionResult TaoMoi(product product,HttpPostedFileBase product_image)
         {
-            ViewBag.product_categoryId = new SelectList(db.categories.OrderBy(n => n.category_id), "category_id", "category_title");
-            ViewBag.product_createBy = new SelectList(db.admins.OrderBy(n => n.admin_id), "admin_id", "admin_name");
+            ViewBag.product_categoryId = new SelectList(db.category.OrderBy(n => n.category_id), "category_id", "category_title");
+            ViewBag.product_createBy = new SelectList(db.admin.OrderBy(n => n.admin_id), "admin_id", "admin_name");
            
             //kiem tra hinh anh ton tai chua
             if (product_image.ContentLength > 0)
@@ -47,7 +47,7 @@ namespace WebNET.Controllers
                 }
                 
             }
-            db.products.Add(product);
+            db.product.Add(product);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

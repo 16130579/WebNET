@@ -19,6 +19,6 @@ namespace WebNET.Models
         public string paragraph_content { get; set; }
         public string paragraph_blogsId { get; set; }
     
-        public virtual blog blog { get; set; }
+        public virtual blogs blogs { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace WebNET.Controllers
         // GET: TimKiem
         public ActionResult KQTimkiem(string sTukhoa )
         {
-            var listSP = db.products.Where(n => n.product_name.Contains(sTukhoa));
+            var listSP = db.product.Where(n => n.product_name.Contains(sTukhoa));
             return View(listSP.OrderBy(n=>n.product_name));
         }
     }
