@@ -42,7 +42,7 @@
                                     <li><i class="fas fa-star" aria-hidden="true"></i></li>
                                     <li><i class="fas fa-star" aria-hidden="true"></i></li>
                                 </ul>
-                                <a class="add-to-cart__btn" href="#">add to cart</a>
+                                <a class="add-to-cart__btn" href="@Url.Action("ThemGioHang", "GioHang", new { @MaSP = item.product_id, @strURL = Request.Url.ToString() })">add to cart</a>
                             </div>
 
                         </div>

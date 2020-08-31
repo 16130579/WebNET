@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace WebNET.Controllers
 {
-    public class CartPageController : Controller
+    public class CheckoutController : Controller
     {
-        // GET: CartPage
-        public ActionResult Index()
+        // GET: Checkout
+        public ActionResult Checkout()
         {
             return View();
         }
