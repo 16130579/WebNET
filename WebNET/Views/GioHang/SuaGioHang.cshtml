@@ -351,11 +351,6 @@
                                 <div class="summarize">
                                     <table>
                                         <tr>
-                                            <th>Sub-Total :</th>
-                                            <td>$85.00</td>
-                                        </tr>
-
-                                        <tr>
                                             <th>Total :</th>
                                             <td>$85.00</td>
                                         </tr>
@@ -364,11 +359,11 @@
 
                                 <div class="checkout__cart">
                                     <div class="continue__shopping apply__coupon__button get__quotes">
-                                        <a href="index.html">Continue Shopping</a>
+                                        @Html.ActionLink("Continue Shopping", "Index", "Home")
                                     </div>
 
                                     <div class="to__checkout apply__coupon__button get__quotes">
-                                        <a href="checkout.html">Checkout</a>
+                                        @Html.ActionLink("Checkout", "Checkout", "Checkout")
                                     </div>
                                 </div>
                             </div>
