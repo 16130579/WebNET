@@ -1,0 +1,50 @@
+﻿@using WebNET.Models
+@model IEnumerable<user>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 5);
+}
+
+<hr />
+@*Thể hiện dữ liệu thông qua webgrid*@
+@grid.GetHtml(
+    tableStyle: "gridTable",
+    headerStyle: "gridHead",
+    footerStyle: "gridFooter",
+    rowStyle: "gridRow",
+    alternatingRowStyle: "gridAltRow",
+    columns: grid.Columns(
+
+        grid.Column("user_firstName", "Tên Lót"),
+        grid.Column("user_lastName", "Tên"),
+        grid.Column("user_email", "Email"),
+        grid.Column("user_phone", "Số Điện Thoại"),
+        grid.Column(format: p => @Html.ActionLink("Chỉnh sửa", "ChinhSuaUser",new { id = p.user_id })),
+        grid.Column(format: p => @Html.ActionLink("Xóa", "XoaUser", new { id = p.user_id }))
+
+        )
+    )
+<style>
+    .gridTable {
+        border: 1px solid black;
+    }
+
+ 
+
+    .gridHead {
+        background: crimson;
+    }
+
+    .gridRow {
+        border: 1px solid black;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th {
+        width: 100px;
+    }
+</style>

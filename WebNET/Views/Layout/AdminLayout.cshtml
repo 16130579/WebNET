@@ -170,11 +170,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <h3>Featured</h3>
                 <ul>
                     <li><a href="#"><i class="chat"></i></a></li>
-                    <li><a href="#">Charts</a></li>
+                    <li>@Html.ActionLink("Quản lý sản phẩm","Index")</li>
                 </ul>
                 <ul>
                     <li><a href="#"><i class="art"></i></a></li>
-                    <li><a href="#">Articals</a></li>
+                    <li>@Html.ActionLink("Quản lý User", "UserView")</li>
                 </ul>
                 <ul>
                     <li><a href="#"><i class="user"></i></a></li>
@@ -193,7 +193,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li><a href="#">Settings</a></li>
                 </ul>
             </div>
-            <div class="navigation">
+            @*<div class="navigation">
                 <h3>Navigation</h3>
                 <ul>
                     <li><a href="#"><i class="dash"></i></a></li>
@@ -211,8 +211,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li><a href="#"><i class="page"></i></a></li>
                     <li><a href="#">Pages</a></li>
                 </ul>
-            </div>
-            <div class="navigation">
+            </div>*@
+            @*<div class="navigation">
                 <h3>All Others</h3>
                 <ul>
                     <li><a href="#"><i class="rev"></i></a></li>
@@ -226,7 +226,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li><a href="#"><i class="faq"></i></a></li>
                     <li><a href="#">FAQs</a></li>
                 </ul>
-            </div>
+            </div>*@
         </div>
         <div class="col-md-9 content">
             
@@ -387,17 +387,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
             </div>
             <div class="member">
-                <p><a href="#"><i class="men"></i></a><a href="#">Username</a></p>
+                <p><a href="#"><i class="men"></i></a><a href="#">Admin</a></p>
                 <div id="dd" class="wrapper-dropdown-2" tabindex="1">
                     <span><img src="~/Content/Aimages/settings.png" /></span>
                     <ul class="dropdown">
-
-                        <li><a href="#">View Profile </a></li>
-                        <li><a href="#">Lists</a></li>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Activity log</a></li>
-                        <li><a href="#">Report a problem</a></li>
-                        <li><a href="#">Log out</a></li>
+                        <li>@Html.ActionLink("Logout","Logout")</li>
                     </ul>
                 </div>
                 <!-----end-wrapper-dropdown-2---->

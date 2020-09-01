@@ -3,9 +3,9 @@
 
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Document</title>
 
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" rel="stylesheet">
@@ -13,7 +13,8 @@
     <script src="https://kit.fontawesome.com/6b4959f5c2.js"></script>
     <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="~/Content/css/main.css">
@@ -31,56 +32,29 @@
     <link rel="stylesheet" href="~/Content/css/cart-page.css">
     <link rel="stylesheet" href="~/Content/css/checkout.css">
     <!-- <link rel="stylesheet" href="libs/Hover-master/css/hover.css"> -->
-    <style>
-        /* Style The Dropdown Button */
-        .dropbtn {
-            
-            color: black;
-            padding: 1px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* The container <div> - needed to position the dropdown content */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Dropdown Content (Hidden by Default) */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 250px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-            /* Links inside the dropdown */
-            .dropdown-content a {
-                color: black;
-                padding: 12px 16px;
-                text-decoration: none;
-                display: block;
-            }
-
-                /* Change color of dropdown links on hover */
-                .dropdown-content a:hover {
-                    background-color: #f1f1f1
-                }
-
-        /* Show the dropdown menu on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Change the background color of the dropdown button when the dropdown content is shown */
-        .dropdown:hover .dropbtn {
-            background-color: #3e8e41;
-        }
-    </style>
+    <script type="text/javascript">
+        //check email, username
+        //$(document).ready(function () {
+        //    $('#email').on('keyup', function () {
+        //        $.ajax({
+        //            url: '/validate_email',
+        //            data: {
+        //                email: $('#email').val()
+        //            },
+        //            success: function (data) {
+        //                if ($('#email').val() != '' && data == true) {
+        //                    $("#email").css("border", "2px solid red");
+        //                    $('#error_exist_email').html('Email đã được sử dụng!');
+        //                    $("#btnSubmit").attr("disabled", true);
+        //                } else {
+        //                    $("#email").css("border", "2px solid green");
+        //                    $('#error_exist_email').html('');
+        //                    $("#btnSubmit").attr("disabled", false);
+        //                }
+        //            },
+        //        });
+        //    });
+    </script>
 </head>
 <body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
     <header>
@@ -121,43 +95,39 @@
                                 <i class="fas fa-search" aria-hidden="true"></i>
                                 <div class="sub__input">
                                     @*Tao form submit ve action tim kiem*@
-                                    @using (Html.BeginForm("KQTimKiem", "TimKiem"))
-                                    {
-                        <input type="text" name="sTukhoa" placeholder="Nhập sản phẩm cần tìm">}
+                                    @using (Html.BeginForm("KQTimKiem", "TimKiem")) {
+                                <input type="text" name="sTukhoa" placeholder="Nhập sản phẩm cần tìm">
+                                    }
                                 </div>
 
                             </li>
                             <li class="user">
                                 <i class="fas fa-user" aria-hidden="true"></i>
-                                @{ if (Session["TaiKhoan"] != null && Session["TaiKhoan"] != "")
+                                @{
+                                    if (Session["TaiKhoan"] != null && Session["TaiKhoan"] != "")
                                     {
                                         user tv = (user)Session["TaiKhoan"];
-                            
-                                            
-                                                            <div class="dropdown">
-                                                                <button class="dropbtn">Chào @tv.user_email</button>
-                                                                <div class="dropdown-content">
+                                        <span>Chào @tv.user_email</span>
+                                        @Html.ActionLink("Logout", "Logout")
+                                    }
+                                    else
+                                    {
 
-                                                                    @Html.ActionLink("Thông tin tài khoản", "UserInfo")
-                                                                  
-                                                                    @Html.ActionLink("Đổi mật khẩu", "UserPass")
-                                                                    @Html.ActionLink("Logout", "Logout")
-                                                                </div>
-                                                            </div> }
-                                                                        else
-                                                                        {
+                                        <ul class="sub-menu">
+                                            <li><a href="@Url.Action("DangKy", "Home", new { id = "Register" })">Register</a></li>
+                                            <li><a href="@Url.Action("Login", "Home", new { id = "Login" })">Login</a></li>
+                                        </ul>
+                                    }
 
-                                                            <ul class="sub-menu">
-                                                                <li><a href="@Url.Action("DangKy", "Home", new { id = "Register" })">Register</a></li>
-                                                                <li><a href="@Url.Action("Login", "Home", new { id = "Login" })">Login</a></li>
-                                                            </ul> } }
+                                }
 
 
 
                             </li>
-                            @*///////////////////////////*@
-                            @*Chen partial view giỏ hàng *@
-                            @Html.Action("GioHangPartial", "GioHang")
+
+                            <li id="clickCart">
+                                <i class="fas fa-shopping-cart" aria-hidden="true"></i><span class="cart__quantity">0</span>
+                            </li>
                         </ul>
                         <div class="cart__container" id="cartContainer">
                             <div class="cart__wrapper">
@@ -494,8 +464,8 @@
     </div>
     <!-- Javascript -->
     @*<script src="~/Content/js/main.js"></script>
-        <script src="~/Content/js/productDetail.js"></script>
-        <script src="~/Content/js/home.js"></script>*@
+    <script src="~/Content/js/productDetail.js"></script>
+    <script src="~/Content/js/home.js"></script>*@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
@@ -505,10 +475,10 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-        AOS.init();
+                                                                                                    AOS.init();
     </script>
 
 
 
-</body>
+    </body>
 </html>

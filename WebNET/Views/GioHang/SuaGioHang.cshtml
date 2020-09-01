@@ -1,0 +1,375 @@
+﻿@using WebNET.Models
+@model ItemGioHang
+@{
+    ViewBag.Title = "SuaGioHang";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+
+@{
+    List<ItemGioHang> lstGioHang = ViewBag.GioHang as List<ItemGioHang>;
+
+}
+<main>
+    <section class="wrapper-category">
+        <div class="breadcrumb__container row align-items-center">
+            <div class="breadcrumb__icon">
+                <i class="fa fa-home"></i>
+            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb non-bg">
+
+                    <li class="breadcrumb-item color-green" aria-current="page">Cart Page</li>
+
+                </ol>
+            </nav>
+        </div>
+        <div class="main__category__container">
+            <div class="category__search">
+                <div class="search__by__category">
+                    <div class="search__title">
+                        <h3>CATEGORIES</h3>
+                    </div>
+                    <div class="list__category">
+                        <ul>
+                            <li>
+                                <a>
+                                    organic food (15)
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    organic food (15)
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    organic food (15)
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    organic food (15)
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    organic food (15)
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    organic food (15)
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    organic food (15)
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search__by__refine">
+                    <div class="search__title">
+                        <h3>REFINE SEARCH</h3>
+                    </div>
+                    <div class="list__search">
+                        <div class="title">
+                            <h4>COLOR</h4>
+                        </div>
+                        <div class="list__item">
+                            <form action="">
+                                <input type="checkbox" /> Green(9) <br />
+                                <input type="checkbox" /> Green(9) <br />
+                                <input type="checkbox" /> Green(9) <br />
+                                <input type="checkbox" /> Green(9) <br />
+                            </form>
+                        </div>
+                    </div>
+                    <div class="list__search">
+                        <div class="title">
+                            <h4>SIZE</h4>
+                        </div>
+                        <div class="list__item">
+                            <form action="">
+                                <input type="checkbox" /> small(9) <br />
+                                <input type="checkbox" /> small(9) <br />
+                                <input type="checkbox" /> small(9) <br />
+                            </form>
+                        </div>
+                    </div>
+                    <div class="list__search">
+                        <div class="title">
+                            <h4>WEIGHT</h4>
+                        </div>
+                        <div class="list__item">
+                            <form action="">
+                                <input type="checkbox" /> 5(9) <br />
+                                <input type="checkbox" /> 12(9) <br />
+                                <input type="checkbox" /> 32(9) <br />
+                            </form>
+                        </div>
+                    </div>
+                    <div class="button__search">
+                        <a href="">Refine Search</a>
+                    </div>
+                </div>
+                <div class="banner__container">
+                    <img src="img/left-banner.jpg" alt="" />
+                </div>
+                <div class="specials__container">
+                    <div class="search__title">
+                        <h3>SPECIALS</h3>
+                    </div>
+                    <div class="product-list">
+                        <ul>
+                            <li>
+                                <div class="product-item">
+                                    <div class="image">
+                                        <img src="img/dudu.jpg" alt="" />
+                                    </div>
+                                    <div class="content__wrapper">
+                                        <div class="content">
+                                            <span class="hover">Exercitat Virginia</span>
+                                            <div class="price">
+                                                <div class="price__sale">
+                                                    <span>$100</span>
+                                                </div>
+                                                <div class="price__cost">
+                                                    <span>$119</span>
+                                                </div>
+                                            </div>
+                                            <a class="hover">Add To Cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="product-item">
+                                    <div class="image">
+                                        <img src="img/dudu.jpg" alt="" />
+                                    </div>
+                                    <div class="content__wrapper">
+                                        <div class="content">
+                                            <span class="hover">Exercitat Virginia</span>
+                                            <div class="price">
+                                                <div class="price__sale">
+                                                    <span>$100</span>
+                                                </div>
+                                                <div class="price__cost">
+                                                    <span>$119</span>
+                                                </div>
+                                            </div>
+                                            <a class="hover">Add To Cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="product-item">
+                                    <div class="image">
+                                        <img src="img/dudu.jpg" alt="" />
+                                    </div>
+                                    <div class="content__wrapper">
+                                        <div class="content">
+                                            <span class="hover">Exercitat Virginia</span>
+                                            <div class="price">
+                                                <div class="price__sale">
+                                                    <span>$100</span>
+                                                </div>
+                                                <div class="price__cost">
+                                                    <span>$119</span>
+                                                </div>
+                                            </div>
+                                            <a class="hover">Add To Cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart__body__wrapper">
+                <div class="cart__body">
+                    <div class="blog__titles">
+                        <h3>SHOPPING CART</h3>
+                    </div>
+                    @*-------------------------------*@
+                    <div class="cart__body__container">
+                        <div class="cart__body__list">
+                            <table>
+                                <tr>
+                                    <th style="text-align:center">Image</th>
+                                    <th style="text-align:center">Product Name</th>
+                                    <th style="text-align:center">Model</th>
+                                    <th style="text-align:center" class="quantity__table">Quantity</th>
+                                    <th style="text-align:center">Unit Price</th>
+                                    <th style="text-align:center">Total</th>
+                                    <th style="text-align:center"></th>
+                                </tr>
+                                @foreach (var item in lstGioHang)
+                                {
+                                    //sp co maSP duoc chinh gui tu tham so ben trang xem gio hang
+                                    if (Model.MaSP == item.MaSP)
+                                    {
+                                        using (Html.BeginForm("CapNhatGioHang", "GioHang"))
+                                        {
+                                            <tr>
+                                                <td style="text-align:center">
+                                                    <img src="@Url.Content("~/Content/img" + item.HinhAnh)" alt="">
+                                                </td>
+
+                                                <td style="text-align:center">@item.TenSP</td>
+                                                <td style="text-align:center">@item.MaSP @Html.Hidden("MaSP", item.MaSP)</td>
+                                                <td style="text-align:center">@Html.TextBox("SoLuong", @item.SoLuong)</td>
+                                                <td style="text-align:center">$ @item.DonGia.ToString("#,##")</td>
+                                                <td style="text-align:center">$ @item.ThanhTien.ToString("#,##")</td>
+                                                <td style="text-align:center">
+                                                    <input type="submit" value="Cập nhật" />
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr>
+                                            <td style="text-align:center">
+                                                <img src="@Url.Content("~/Content/img"+ item.HinhAnh)" alt="">
+                                            </td>
+
+                                            <td style="text-align:center">@item.TenSP</td>
+                                            <td style="text-align:center">@item.MaSP</td>
+                                            <td style="text-align:center">@item.SoLuong</td>
+                                            <td style="text-align:center">$ @item.DonGia.ToString("#,##")</td>
+                                            <td style="text-align:center">$ @item.ThanhTien.ToString("#,##")</td>
+                                            <td style="text-align:center">
+                                                @Html.ActionLink("Sửa", "SuaGioHang", new { @MaSP = item.MaSP })
+                                                @Html.ActionLink("Xóa", "XoaGioHang", new { @MaSP = item.MaSP })
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+
+                            </table>
+                            </div>
+
+                            <div class="cart__body__options">
+                                <div class="do__next">
+                                    <h6>What would you like to do next?</h6>
+                                    <p>
+                                        Choose if you have a discount code or reward points you want to use or would like to estimate your
+                                        delivery cost.
+                                    </p>
+                                </div>
+
+                                <div class="optionals">
+                                    <!-- Collapse buttons -->
+                                    <div class="coupon__code">
+                                        <div>
+                                            <button class="btn btn__step" type="button" data-toggle="collapse" data-target="#collapseExample2"
+                                                    aria-expanded="false" aria-controls="collapseExample2">
+                                                Use Coupon Code
+                                            </button>
+                                        </div>
+                                        <!-- / Collapse buttons -->
+                                        <!-- Collapsible element -->
+                                        <div class="collapse" id="collapseExample2">
+                                            <div class="mt-3">
+                                                <div class="coupon__code__container">
+                                                    <div class="enter__coupon">
+                                                        <p>Enter your coupon here</p>
+                                                    </div>
+
+                                                    <div class="input__coupon"><input type="text"></div>
+
+                                                    <div class="apply__coupon__button">
+                                                        <a href="">Apply Coupon</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="coupon__code">
+                                        <div>
+                                            <button class="btn btn__step" type="button" data-toggle="collapse" data-target="#collapseExample1"
+                                                    aria-expanded="false" aria-controls="collapseExample1">
+                                                Estimate Shipping & Taxes
+                                            </button>
+                                        </div>
+                                        <!-- / Collapse buttons -->
+                                        <!-- Collapsible element -->
+                                        <div class="collapse" id="collapseExample1">
+                                            <div class="mt-3">
+                                                <div class="shipping__taxes__container">
+                                                    <div>
+                                                        <p>Enter your destination to get a shipping estimate.</p>
+                                                    </div>
+
+                                                    <div class="province__container">
+                                                        <label for="province"><span>*</span>&nbsp;Provice</label>
+                                                        <select id="province" class="browser-default custom-select"
+                                                                aria-label="Example select with button addon">
+                                                            <option selected>---Please Select---</option>
+                                                            <option value="1">An Giang</option>
+                                                            <option value="2">Bắc Giang</option>
+                                                            <option value="3">Cà Mau</option>
+                                                        </select>
+                                                    </div>
+
+
+
+                                                    <div class="ward__container">
+                                                        <label for="ward"><span>*</span>&nbsp;Ward/District</label>
+                                                        <select id="ward" class="browser-default custom-select"
+                                                                aria-label="Example select with button addon">
+                                                            <option selected>---Please Select---</option>
+                                                            <option value="1">An Giang</option>
+                                                            <option value="2">Bắc Giang</option>
+                                                            <option value="3">Cà Mau</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="coupon__codes">
+                                                        <label for="postcode">Post Code</label>
+                                                        <input id="postcode" type="text">
+                                                    </div>
+
+                                                    <div class="apply__coupon__button get__quotes">
+                                                        <a href="">Get Quotes</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="summarize">
+                                    <table>
+                                        <tr>
+                                            <th>Total :</th>
+                                            <td>$85.00</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="checkout__cart">
+                                    <div class="continue__shopping apply__coupon__button get__quotes">
+                                        @Html.ActionLink("Continue Shopping", "Index", "Home")
+                                    </div>
+
+                                    <div class="to__checkout apply__coupon__button get__quotes">
+                                        @Html.ActionLink("Checkout", "Checkout", "Checkout")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </main>
+

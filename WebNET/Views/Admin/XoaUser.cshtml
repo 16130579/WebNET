@@ -1,0 +1,81 @@
+﻿@model WebNET.Models.user
+
+@{
+    ViewBag.Title = "XoaUser";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Xóa User</h2>
+
+<h3>Bạn chắc chắn muốn xóa?</h3>
+<div>
+    <h4>user</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.user_firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user_firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user_lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user_lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user_fullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user_fullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user_password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user_password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.role.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.role.name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

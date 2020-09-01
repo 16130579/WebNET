@@ -5,6 +5,8 @@
     Layout = "~/Views/Layout/AdminLayout.cshtml";
     WebGrid grid = new WebGrid(source: Model, rowsPerPage: 5);
 }
+@Html.ActionLink("Thêm sản phẩm", "TaoMoi", null, new {@class="btn btn-success"})
+<hr />
 @*Thể hiện dữ liệu thông qua webgrid*@
 @grid.GetHtml(
     tableStyle : "gridTable",
@@ -13,11 +15,12 @@
     rowStyle: "gridRow",
     alternatingRowStyle: "gridAltRow",
     columns : grid.Columns(
-        
+
         grid.Column("product_name", "Tên Sản Phẩm"),
         grid.Column("product_image", "Hình ảnh", format: p => @Html.Raw("<img class='productimg' src=\"../Content/img/" + p.product_image + "\">")),
-        grid.Column("product_description", "Mô Tả",format:p=> @Html.Raw(p.product_description))
-
+        grid.Column("product_description", "Mô Tả",format:p=> @Html.Raw(p.product_description)),
+        grid.Column(format: p=> @Html.ActionLink("Chỉnh sửa","ChinhSua",new {id=p.product_id})),
+        grid.Column(format: p => @Html.ActionLink("Xóa", "Xoa", new {id=p.product_id }))
 
         )
     )

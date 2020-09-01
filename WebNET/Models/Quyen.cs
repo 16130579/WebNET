@@ -12,25 +12,18 @@ namespace WebNET.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class user
+    public partial class Quyen
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public user()
+        public Quyen()
         {
-            this.orders = new HashSet<order>();
+            this.Role_Quyen = new HashSet<Role_Quyen>();
         }
     
-        public int user_id { get; set; }
-        public string user_firstName { get; set; }
-        public string user_lastName { get; set; }
-        public string user_fullName { get; set; }
-        public string user_email { get; set; }
-        public string user_password { get; set; }
-        public Nullable<int> user_phone { get; set; }
-        public Nullable<int> user_role { get; set; }
+        public string MaQuyen { get; set; }
+        public string TenQuyen { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<order> orders { get; set; }
-        public virtual role role { get; set; }
+        public virtual ICollection<Role_Quyen> Role_Quyen { get; set; }
     }
 }

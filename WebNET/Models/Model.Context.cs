@@ -34,6 +34,9 @@ namespace WebNET.Models
         public virtual DbSet<paragraph> paragraphs { get; set; }
         public virtual DbSet<product> products { get; set; }
         public virtual DbSet<provice> provices { get; set; }
+        public virtual DbSet<Quyen> Quyens { get; set; }
+        public virtual DbSet<role> roles { get; set; }
+        public virtual DbSet<Role_Quyen> Role_Quyen { get; set; }
         public virtual DbSet<user> users { get; set; }
     }
 }

@@ -44,7 +44,7 @@
           <Key>
             <PropertyRef Name="orderItem_id" />
           </Key>
-          <Property Name="orderItem_id" Type="int" Nullable="false" />
+          <Property Name="orderItem_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="orderItem_ordersId" Type="int" />
           <Property Name="orderItem_productId" Type="int" />
           <Property Name="orderItem_quantity" Type="int" />
@@ -53,7 +53,7 @@
           <Key>
             <PropertyRef Name="orders_id" />
           </Key>
-          <Property Name="orders_id" Type="int" Nullable="false" />
+          <Property Name="orders_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="orders_userId" Type="int" />
           <Property Name="orders_shippingAddress" Type="varchar" MaxLength="100" />
           <Property Name="orders_status" Type="tinyint" />
@@ -91,17 +91,41 @@
           <Property Name="province_id" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="province_title" Type="varchar" MaxLength="30" />
         </EntityType>
+        <EntityType Name="Quyen">
+          <Key>
+            <PropertyRef Name="MaQuyen" />
+          </Key>
+          <Property Name="MaQuyen" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenQuyen" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="Role_Quyen">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_id" Type="int" />
+          <Property Name="quyen_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ghi chu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="user">
           <Key>
             <PropertyRef Name="user_id" />
           </Key>
-          <Property Name="user_id" Type="int" Nullable="false" />
-          <Property Name="user_firstName" Type="varchar" MaxLength="40" />
-          <Property Name="user_lastName" Type="varchar" MaxLength="40" />
-          <Property Name="user_fullName" Type="varchar" MaxLength="80" />
-          <Property Name="user_email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_firstName" Type="nvarchar" MaxLength="40" />
+          <Property Name="user_lastName" Type="nvarchar" MaxLength="40" />
+          <Property Name="user_fullName" Type="nvarchar" MaxLength="80" />
+          <Property Name="user_email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="user_password" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="user_phone" Type="varchar" MaxLength="20" />
+          <Property Name="user_phone" Type="int" />
+          <Property Name="user_role" Type="int" />
         </EntityType>
         <Association Name="fk_blog">
           <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
@@ -163,6 +187,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_role">
+          <End Role="role" Type="Self.role" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="user_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_Quyen_Quyen">
+          <End Role="Quyen" Type="Self.Quyen" Multiplicity="0..1" />
+          <End Role="Role_Quyen" Type="Self.Role_Quyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quyen">
+              <PropertyRef Name="MaQuyen" />
+            </Principal>
+            <Dependent Role="Role_Quyen">
+              <PropertyRef Name="quyen_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_Quyen_role">
+          <End Role="role" Type="Self.role" Multiplicity="0..1" />
+          <End Role="Role_Quyen" Type="Self.Role_Quyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Role_Quyen">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk01_orderItem">
           <End Role="orders" Type="Self.orders" Multiplicity="0..1" />
           <End Role="orderitem" Type="Self.orderitem" Multiplicity="*" />
@@ -221,6 +281,9 @@
           <EntitySet Name="paragraph" EntityType="Self.paragraph" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="provice" EntityType="Self.provice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quyen" EntityType="Self.Quyen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role_Quyen" EntityType="Self.Role_Quyen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fk_blog" Association="Self.fk_blog">
             <End Role="admin" EntitySet="admin" />
@@ -241,6 +304,18 @@
           <AssociationSet Name="fk_paragrap" Association="Self.fk_paragrap">
             <End Role="blogs" EntitySet="blogs" />
             <End Role="paragraph" EntitySet="paragraph" />
+          </AssociationSet>
+          <AssociationSet Name="fk_role" Association="Self.fk_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_Quyen_Quyen" Association="Self.FK_Role_Quyen_Quyen">
+            <End Role="Quyen" EntitySet="Quyen" />
+            <End Role="Role_Quyen" EntitySet="Role_Quyen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_Quyen_role" Association="Self.FK_Role_Quyen_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="Role_Quyen" EntitySet="Role_Quyen" />
           </AssociationSet>
           <AssociationSet Name="fk01_orderItem" Association="Self.fk01_orderItem">
             <End Role="orders" EntitySet="orders" />
@@ -312,7 +387,7 @@
           <Key>
             <PropertyRef Name="orderItem_id" />
           </Key>
-          <Property Name="orderItem_id" Type="Int32" Nullable="false" />
+          <Property Name="orderItem_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="orderItem_ordersId" Type="Int32" />
           <Property Name="orderItem_productId" Type="Int32" />
           <Property Name="orderItem_quantity" Type="Int32" />
@@ -323,7 +398,7 @@
           <Key>
             <PropertyRef Name="orders_id" />
           </Key>
-          <Property Name="orders_id" Type="Int32" Nullable="false" />
+          <Property Name="orders_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="orders_userId" Type="Int32" />
           <Property Name="orders_shippingAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="orders_status" Type="Byte" />
@@ -367,18 +442,48 @@
           <Property Name="province_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="province_title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Quyen">
+          <Key>
+            <PropertyRef Name="MaQuyen" />
+          </Key>
+          <Property Name="MaQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Role_Quyen" Relationship="Self.FK_Role_Quyen_Quyen" FromRole="Quyen" ToRole="Role_Quyen" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="users" Relationship="Self.fk_role" FromRole="role" ToRole="user" />
+          <NavigationProperty Name="Role_Quyen" Relationship="Self.FK_Role_Quyen_role" FromRole="role" ToRole="Role_Quyen" />
+        </EntityType>
+        <EntityType Name="Role_Quyen">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_id" Type="Int32" />
+          <Property Name="quyen_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ghi_chu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Quyen" Relationship="Self.FK_Role_Quyen_Quyen" FromRole="Role_Quyen" ToRole="Quyen" />
+          <NavigationProperty Name="role" Relationship="Self.FK_Role_Quyen_role" FromRole="Role_Quyen" ToRole="role" />
+        </EntityType>
         <EntityType Name="user">
           <Key>
             <PropertyRef Name="user_id" />
           </Key>
-          <Property Name="user_id" Type="Int32" Nullable="false" />
-          <Property Name="user_firstName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="user_lastName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="user_fullName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
-          <Property Name="user_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_firstName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="user_lastName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="user_fullName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="user_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="user_password" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="user_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="user_phone" Type="Int32" />
+          <Property Name="user_role" Type="Int32" />
           <NavigationProperty Name="orders" Relationship="Self.fk_orders" FromRole="user" ToRole="orders" />
+          <NavigationProperty Name="role" Relationship="Self.fk_role" FromRole="user" ToRole="role" />
         </EntityType>
         <Association Name="fk_blog">
           <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
@@ -488,6 +593,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Role_Quyen_Quyen">
+          <End Role="Quyen" Type="Self.Quyen" Multiplicity="0..1" />
+          <End Role="Role_Quyen" Type="Self.Role_Quyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quyen">
+              <PropertyRef Name="MaQuyen" />
+            </Principal>
+            <Dependent Role="Role_Quyen">
+              <PropertyRef Name="quyen_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_role">
+          <End Role="role" Type="Self.role" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="user_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_Quyen_role">
+          <End Role="role" Type="Self.role" Multiplicity="0..1" />
+          <End Role="Role_Quyen" Type="Self.Role_Quyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Role_Quyen">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="farmfreshEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="admins" EntityType="Self.admin" />
           <EntitySet Name="blogs" EntityType="Self.blog" />
@@ -498,6 +639,9 @@
           <EntitySet Name="paragraphs" EntityType="Self.paragraph" />
           <EntitySet Name="products" EntityType="Self.product" />
           <EntitySet Name="provices" EntityType="Self.provice" />
+          <EntitySet Name="Quyens" EntityType="Self.Quyen" />
+          <EntitySet Name="roles" EntityType="Self.role" />
+          <EntitySet Name="Role_Quyen" EntityType="Self.Role_Quyen" />
           <EntitySet Name="users" EntityType="Self.user" />
           <AssociationSet Name="fk_blog" Association="Self.fk_blog">
             <End Role="admin" EntitySet="admins" />
@@ -534,6 +678,18 @@
           <AssociationSet Name="fk_orders" Association="Self.fk_orders">
             <End Role="user" EntitySet="users" />
             <End Role="orders" EntitySet="orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_Quyen_Quyen" Association="Self.FK_Role_Quyen_Quyen">
+            <End Role="Quyen" EntitySet="Quyens" />
+            <End Role="Role_Quyen" EntitySet="Role_Quyen" />
+          </AssociationSet>
+          <AssociationSet Name="fk_role" Association="Self.fk_role">
+            <End Role="role" EntitySet="roles" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_Quyen_role" Association="Self.FK_Role_Quyen_role">
+            <End Role="role" EntitySet="roles" />
+            <End Role="Role_Quyen" EntitySet="Role_Quyen" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -637,6 +793,32 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Quyens">
+            <EntityTypeMapping TypeName="farmfreshModel.Quyen">
+              <MappingFragment StoreEntitySet="Quyen">
+                <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+                <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="farmfreshModel.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role_Quyen">
+            <EntityTypeMapping TypeName="farmfreshModel.Role_Quyen">
+              <MappingFragment StoreEntitySet="Role_Quyen">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="quyen_id" ColumnName="quyen_id" />
+                <ScalarProperty Name="Ghi_chu" ColumnName="Ghi chu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="users">
             <EntityTypeMapping TypeName="farmfreshModel.user">
               <MappingFragment StoreEntitySet="user">
@@ -647,6 +829,7 @@
                 <ScalarProperty Name="user_email" ColumnName="user_email" />
                 <ScalarProperty Name="user_password" ColumnName="user_password" />
                 <ScalarProperty Name="user_phone" ColumnName="user_phone" />
+                <ScalarProperty Name="user_role" ColumnName="user_role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
