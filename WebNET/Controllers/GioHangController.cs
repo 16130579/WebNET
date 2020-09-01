@@ -174,5 +174,35 @@ namespace WebNET.Controllers
             lstGioHang.Remove(spCheck);
             return RedirectToAction("XemGioHang");
         }
+        //Dat hang
+        public ActionResult DatHang(string shippingAddress)
+        {
+            if (Session["GioHang"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            orders ddh = new orders();
+            ddh.orders_createDate = DateTime.Now;
+            ddh.orders_shippingAddress = shippingAddress;
+            ddh.orders_status = false;
+            db.orders.Add(ddh);
+            db.SaveChanges();
+
+            //them chi tiet don hang
+            List<ItemGioHang> lstGH = LayGioHang();
+            foreach (var item  in lstGH)
+            {
+                orderitem ctdh = new orderitem();
+                ctdh.orderItem_ordersId = ddh.orders_id;
+                ctdh.orderItem_productId = item.MaSP;
+                ctdh.orderItem_productName = item.TenSP;
+                ctdh.orderItem_quantity = item.SoLuong;
+                ctdh.orderItem_price = item.DonGia;
+                db.orderitem.Add(ctdh);
+            }   
+            db.SaveChanges();
+            Session["GioHang"] = null;
+            return RedirectToAction("XemGioHang");
+        }
     }
 }

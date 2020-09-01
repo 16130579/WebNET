@@ -5,23 +5,23 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="df4a3067e48b450594ec2f0ecb9d2023" Name="Diagram1">
-        <EntityTypeShape EntityType="farmfreshModel.admin" Width="1.5" PointX="7.75" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="farmfreshModel.blogs" Width="1.5" PointX="10" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="farmfreshModel.category" Width="1.5" PointX="10" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="farmfreshModel.district" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="farmfreshModel.orderitem" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="farmfreshModel.orders" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="farmfreshModel.paragraph" Width="1.5" PointX="12.25" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="farmfreshModel.product" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="farmfreshModel.provice" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="farmfreshModel.user" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="farmfreshModel.fk_blog" ManuallyRouted="false" />
-        <AssociationConnector Association="farmfreshModel.fk_category" ManuallyRouted="false" />
-        <AssociationConnector Association="farmfreshModel.fk_paragrap" ManuallyRouted="false" />
-        <AssociationConnector Association="farmfreshModel.fk_district" ManuallyRouted="false" />
-        <AssociationConnector Association="farmfreshModel.fk01_orderItem" ManuallyRouted="false" />
-        <AssociationConnector Association="farmfreshModel.fk02_orderItem" ManuallyRouted="false" />
-        <AssociationConnector Association="farmfreshModel.fk_orders" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="farmfreshModel.admin" Width="1.5" PointX="7.75" PointY="2.625" />
+        <EntityTypeShape EntityType="farmfreshModel.blogs" Width="1.5" PointX="10" PointY="3.625" />
+        <EntityTypeShape EntityType="farmfreshModel.category" Width="1.5" PointX="10" PointY="1.125" />
+        <EntityTypeShape EntityType="farmfreshModel.district" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="farmfreshModel.orderitem" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="farmfreshModel.orders" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="farmfreshModel.paragraph" Width="1.5" PointX="12.25" PointY="3.875" />
+        <EntityTypeShape EntityType="farmfreshModel.product" Width="1.5" PointX="3" PointY="6.25" />
+        <EntityTypeShape EntityType="farmfreshModel.provice" Width="1.5" PointX="5.75" PointY="7.75" />
+        <EntityTypeShape EntityType="farmfreshModel.user" Width="1.5" PointX="0.75" PointY="1" />
+        <AssociationConnector Association="farmfreshModel.fk_blog" />
+        <AssociationConnector Association="farmfreshModel.fk_category" />
+        <AssociationConnector Association="farmfreshModel.fk_paragrap" />
+        <AssociationConnector Association="farmfreshModel.fk_district" />
+        <AssociationConnector Association="farmfreshModel.fk01_orderItem" />
+        <AssociationConnector Association="farmfreshModel.fk02_orderItem" />
+        <AssociationConnector Association="farmfreshModel.fk_orders" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

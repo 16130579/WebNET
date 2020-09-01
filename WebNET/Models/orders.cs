@@ -20,11 +20,11 @@ namespace WebNET.Models
             this.orderitem = new HashSet<orderitem>();
         }
     
-        public string orders_id { get; set; }
+        public int orders_id { get; set; }
+        public Nullable<System.DateTime> orders_createDate { get; set; }
         public Nullable<int> orders_userId { get; set; }
         public string orders_shippingAddress { get; set; }
-        public Nullable<byte> orders_status { get; set; }
-        public Nullable<byte> orders_register { get; set; }
+        public Nullable<bool> orders_status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<orderitem> orderitem { get; set; }

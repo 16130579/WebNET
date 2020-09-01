@@ -8,7 +8,6 @@ namespace WebNET.Models
     public class ItemGioHang
     {
         public string HinhAnh { get; set; }
-
         public string TenSP { get; set; }
         public int MaSP { get; set; }
         public int SoLuong { get; set; }
