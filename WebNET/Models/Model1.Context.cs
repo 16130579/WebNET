@@ -25,6 +25,7 @@ namespace WebNET.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<addressdetail> addressdetail { get; set; }
         public virtual DbSet<admin> admin { get; set; }
         public virtual DbSet<blogs> blogs { get; set; }
         public virtual DbSet<category> category { get; set; }

@@ -17,6 +17,7 @@ namespace WebNET.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public user()
         {
+            this.addressdetail = new HashSet<addressdetail>();
             this.orders = new HashSet<orders>();
         }
     
@@ -28,6 +29,8 @@ namespace WebNET.Models
         public string user_password { get; set; }
         public string user_phone { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<addressdetail> addressdetail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<orders> orders { get; set; }
     }

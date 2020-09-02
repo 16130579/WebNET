@@ -4,17 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="df4a3067e48b450594ec2f0ecb9d2023" Name="Diagram1">
+      <Diagram DiagramId="df4a3067e48b450594ec2f0ecb9d2023" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="farmfreshModel.addressdetail" Width="1.5" PointX="3" PointY="1.125" />
         <EntityTypeShape EntityType="farmfreshModel.admin" Width="1.5" PointX="7.75" PointY="2.625" />
         <EntityTypeShape EntityType="farmfreshModel.blogs" Width="1.5" PointX="10" PointY="3.625" />
         <EntityTypeShape EntityType="farmfreshModel.category" Width="1.5" PointX="10" PointY="1.125" />
-        <EntityTypeShape EntityType="farmfreshModel.district" Width="1.5" PointX="5.75" PointY="4.75" />
-        <EntityTypeShape EntityType="farmfreshModel.orderitem" Width="1.5" PointX="5.25" PointY="1" />
-        <EntityTypeShape EntityType="farmfreshModel.orders" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="farmfreshModel.district" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="farmfreshModel.orderitem" Width="1.5" PointX="5.25" PointY="3.875" />
+        <EntityTypeShape EntityType="farmfreshModel.orders" Width="1.5" PointX="3" PointY="3.875" />
         <EntityTypeShape EntityType="farmfreshModel.paragraph" Width="1.5" PointX="12.25" PointY="3.875" />
-        <EntityTypeShape EntityType="farmfreshModel.product" Width="1.5" PointX="3" PointY="6.25" />
+        <EntityTypeShape EntityType="farmfreshModel.product" Width="1.5" PointX="3" PointY="7.375" />
         <EntityTypeShape EntityType="farmfreshModel.provice" Width="1.5" PointX="5.75" PointY="7.75" />
-        <EntityTypeShape EntityType="farmfreshModel.user" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="farmfreshModel.user" Width="1.5" PointX="0.75" PointY="2.375" />
+        <AssociationConnector Association="farmfreshModel.fk_addressDetail" />
         <AssociationConnector Association="farmfreshModel.fk_blog" />
         <AssociationConnector Association="farmfreshModel.fk_category" />
         <AssociationConnector Association="farmfreshModel.fk_paragrap" />

@@ -32,7 +32,6 @@ namespace WebNET.Controllers
             product sp = db.product.SingleOrDefault(n => n.product_id == MaSP);
             if (sp == null)
             {
-
                 Response.StatusCode = 404;
                 return null;
             }
@@ -175,22 +174,33 @@ namespace WebNET.Controllers
             return RedirectToAction("XemGioHang");
         }
         //Dat hang
-        public ActionResult DatHang(string shippingAddress)
+        public ActionResult DatHang(user kh, addressdetail addressdetail)
         {
             if (Session["GioHang"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
+            user khachHang = new user();
+            khachHang = kh;
+            db.user.Add(khachHang);
+            db.SaveChanges();
+
+            addressdetail detail = new addressdetail();
+            detail = addressdetail;
+            db.addressdetail.Add(detail);
+            db.SaveChanges();
+
             orders ddh = new orders();
             ddh.orders_createDate = DateTime.Now;
-            ddh.orders_shippingAddress = shippingAddress;
+            ddh.orders_userId = khachHang.user_id;
+            ddh.orders_shippingAddress = detail.addressDetail_address;
             ddh.orders_status = false;
             db.orders.Add(ddh);
             db.SaveChanges();
 
             //them chi tiet don hang
             List<ItemGioHang> lstGH = LayGioHang();
-            foreach (var item  in lstGH)
+            foreach (var item in lstGH)
             {
                 orderitem ctdh = new orderitem();
                 ctdh.orderItem_ordersId = ddh.orders_id;
@@ -199,10 +209,15 @@ namespace WebNET.Controllers
                 ctdh.orderItem_quantity = item.SoLuong;
                 ctdh.orderItem_price = item.DonGia;
                 db.orderitem.Add(ctdh);
-            }   
+            }
             db.SaveChanges();
             Session["GioHang"] = null;
             return RedirectToAction("XemGioHang");
+        }
+
+        public ActionResult Checkout()
+        {
+            return View("Checkout");
         }
     }
 }

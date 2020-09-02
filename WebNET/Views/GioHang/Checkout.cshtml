@@ -1,0 +1,342 @@
+﻿@using WebNET.Models;
+@model List<ItemGioHang>
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+    decimal TotalPrice = 0.00M;
+    decimal VAT = 0.00M;
+    decimal TotalCheckout = 0.00M;
+}
+<main>
+    <section class="wrapper-category">
+        <div class="breadcrumb__container row align-items-center">
+            <div class="breadcrumb__icon">
+                <i class="fa fa-home"></i>
+            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb non-bg">
+
+                    <li class="breadcrumb-item color-green" aria-current="page">Checkout</li>
+
+                </ol>
+            </nav>
+        </div>
+        <div class="main__category__container">
+            <div class="checkout__wrapper">
+                <div class="checkout">
+                    <div class="chekout__title">
+                        <h3>CHECKOUT</h3>
+                    </div>
+
+                    <div class="checkout__tag__wrapper">
+                        <div class="step" id="step1">
+                            <!-- Collapse buttons -->
+                            <div>
+                                <button class="btn btn__step" type="button" data-toggle="collapse"
+                                        data-target="#collapseExample" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                    Step 1: Checkout Options
+                                </button>
+                            </div>
+                            <!-- / Collapse buttons -->
+                            <!-- Collapsible element -->
+                            <div class="collapse border__full" id="collapseExample">
+                                <div class="mt-3">
+                                    <div class="step1__container">
+                                        <div class="new__customer">
+                                            <div class="new__customer__title">
+                                                <h4>New Customer</h4>
+                                            </div>
+
+                                            <div class="option">
+                                                <div>
+                                                    <p style="color: #5f5f5f;" class="text__level2">Register Account</p>
+                                                </div>
+
+                                                <div>
+                                                    <p>
+                                                        By creating an account you will be able to shop faster, be
+                                                        up
+                                                        to date on an order's status, and keep track of the orders
+                                                        you have previously made.
+                                                    </p>
+                                                </div>
+
+                                                <div class="step2__btn">
+                                                    <a href="">Continue</a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="returning__customer">
+                                            <div class="returning__customer__title">
+                                                <h4>Returning Customer</h4>
+                                            </div>
+                                            <div>
+                                                <p>I am a returning customer</p>
+                                            </div>
+
+                                            <div>
+                                                <p>Email</p>
+                                                <input type="text" placeholder="E-Mail">
+                                            </div>
+
+                                            <div>
+                                                <p>Password</p>
+                                                <input type="password" placeholder="Password">
+                                            </div>
+
+                                            <div class="forgot">
+                                                <a href="">Forgotten Password</a>
+                                            </div>
+                                            <div class="step2__btn">
+                                                <a href="">Login</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- / Collapsible element -->
+                        </div>
+                        @using (Html.BeginForm("DatHang", "GioHang"))
+                        {
+                            <div class="step" id="step2">
+                                <!-- Collapse buttons -->
+                                <div>
+                                    <button class="btn btn__step" type="button" data-toggle="collapse"
+                                            data-target="#collapseExample1" aria-expanded="false"
+                                            aria-controls="collapseExample1">
+                                        Step 2: Account & Billing Details
+                                    </button>
+                                </div>
+                                <!-- / Collapse buttons -->
+                                <!-- Collapsible element -->
+
+
+
+                                <div class="collapse" id="collapseExample1">
+
+                                    <div class="mt-3">
+                                        <div class="step2__container">
+                                            <div class="step2__wrapper">
+                                                <div class="personal__detail">
+                                                    <div class="personal__detail__title">
+                                                        <h4>Personal Details</h4>
+                                                    </div>
+
+                                                    <div class="input__personal">
+                                                        <p><span>*</span>&nbsp;First Name</p>
+                                                        @Html.TextBox("user_firstName")
+                                                    </div>
+
+                                                    <div class="input__personal">
+                                                        <p><span>*</span>&nbsp;Last Name</p>
+                                                        @Html.TextBox("user_lastName")
+                                                    </div>
+                                                    <div class="input__personal">
+                                                        <p><span>*</span>&nbsp;E-Mail</p>
+                                                        @Html.TextBox("user_email")
+                                                    </div>
+                                                    <div class="input__personal">
+                                                        <p><span>*</span>&nbsp;Telephone</p>
+                                                        @Html.TextBox("user_phone")
+                                                    </div>
+                                                </div>
+
+                                                <div class="your__address">
+                                                    <div class="your__address__title">
+                                                        <h4>Your Address</h4>
+                                                    </div>
+                                                    <div class="input__personal">
+                                                        <p><span>*</span>&nbsp;Address</p>
+                                                        @Html.TextBox("addressDetail_address")
+                                                    </div>
+
+                                                    <div class="input__personal">
+                                                        <p><span>*</span>&nbsp;Post Code</p>
+                                                        @Html.TextBox("addressDetail_postCode")
+                                                    </div>
+
+                                                    <div class="input__personal">
+                                                        <p><span>*</span>&nbsp;Province</p>
+                                                        <select class="browser-default custom-select"
+                                                                aria-label="Example select with button addon" name="" id="">
+                                                            <option selected value="">---Please Select---</option>
+                                                            <option value="">An Giang</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="input__personal">
+                                                        <p><span>*</span>&nbsp;Ward/District</p>
+                                                        <select class="browser-default custom-select"
+                                                                aria-label="Example select with button addon" name="" id="">
+                                                            <option selected value="">---Please Select---</option>
+                                                            <option value="">Chau Thanh</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="address__agree">
+                                                <input type="checkbox" id="agreement">
+                                                <label for="agreement">
+                                                    My delivery and billing addresses are the same.
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- / Collapsible element -->
+                            </div>
+
+                            <div class="step" id="step3">
+                                <!-- Collapse buttons -->
+                                <div>
+                                    <button class="btn btn__step" type="button" data-toggle="collapse"
+                                            data-target="#collapseExample2" aria-expanded="false"
+                                            aria-controls="collapseExample2">
+                                        Step 3: Delivery Method
+                                    </button>
+                                </div>
+                                <!-- / Collapse buttons -->
+                                <!-- Collapsible element -->
+                                <div class="collapse" id="collapseExample2">
+                                    <div class="mt-3">
+                                        <div class="step3__container">
+                                            <div class="please__select">
+                                                <p>Please select the preferred shipping method to use on this order.</p>
+                                            </div>
+
+                                            <div class="flat__rate">
+                                                <h6>Flat rate</h6>
+                                            </div>
+
+                                            <div class="flat__rate__check">
+                                                <input type="radio" name="" id="checkRate" checked="checked">
+                                                <label for="checkRate">
+                                                    Flat Shipping Rate - $8.00
+                                                </label>
+                                            </div>
+
+                                            <div class="add__comment">
+                                                <h6>Add Comments About Your Order</h6>
+                                                <textarea name="" id="" cols="30" rows="2"></textarea>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / Collapsible element -->
+                            </div>
+
+                            <div class="step" id="step4">
+                                <!-- Collapse buttons -->
+                                <div>
+                                    <button class="btn btn__step" type="button" data-toggle="collapse"
+                                            data-target="#collapseExample3" aria-expanded="false"
+                                            aria-controls="collapseExample3">
+                                        Step 4: Payment Method
+                                    </button>
+                                </div>
+                                <!-- / Collapse buttons -->
+                                <!-- Collapsible element -->
+                                <div class="collapse" id="collapseExample3">
+                                    <div class="mt-3">
+                                        <div class="step4__container">
+                                            <div>
+                                                <p>Please select the preferred payment method to use on this order.</p>
+                                            </div>
+
+                                            <div>
+                                                <input type="radio" name="" id="cashOnDelivery" checked="checked">
+                                                <label for="cashOnDelivery">Cash On Delivery</label>
+                                            </div>
+
+                                            <div class="add__comment">
+                                                <h6>Add Comments About Your Order</h6>
+                                                <textarea name="" id="" cols="30" rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / Collapsible element -->
+                            </div>
+
+                            <div class="step" id="step5">
+                                <!-- Collapse buttons -->
+                                <div>
+                                    <button class="btn btn__step" type="button" data-toggle="collapse"
+                                            data-target="#collapseExample4" aria-expanded="false"
+                                            aria-controls="collapseExample4">
+                                        Step 5: Confirm Order
+                                    </button>
+                                </div>
+                                <!-- / Collapse buttons -->
+                                <!-- Collapsible element -->
+                                @*----------------*@
+                                <div class="collapse" id="collapseExample4">
+                                    <div class="mt-3">
+                                        <div class="step5__container">
+                                            <table>
+                                                <tr>
+                                                    <th>Product Name</th>
+                                                    <th>Model</th>
+                                                    <th>Quantity</th>
+                                                    <th>Unit Price</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                                @foreach (var item in (List<ItemGioHang>)Session["GioHang"])
+                                                {
+                                                    TotalPrice += item.ThanhTien;
+                                                    VAT = TotalPrice * (decimal)0.2;
+                                                    TotalCheckout = TotalPrice + (decimal)8.00 + VAT;
+                                                    <tr>
+                                                        <td>@item.TenSP</td>
+                                                        <td>@item.MaSP</td>
+                                                        <td>@item.SoLuong</td>
+                                                        <td>$@item.DonGia.ToString("#,##")</td>
+                                                        <td>$@item.ThanhTien.ToString("#,##")</td>
+                                                    </tr>
+
+                                                }
+                                                <tr>
+                                                    <td colspan="4">Flat Shipping Rate:</td>
+                                                    <td>$8.00</td>
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td colspan="4">VAT (20%):</td>
+                                                    <td>$@VAT.ToString("#,##")</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4">$@TotalPrice.ToString("#,##")</td>
+                                                    <td>$@TotalCheckout</td>
+                                                </tr>
+
+                                            </table>
+
+                                            <div class="step2__btn">
+                                                @using (Html.BeginForm("DatHang", "GioHang"))
+                                                {
+                                                    <input type="submit" value="Confirm Order" class="btn btn-danger" />
+                                                }
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- / Collapsible element -->
+
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

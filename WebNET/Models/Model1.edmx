@@ -5,14 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="farmfreshModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'farmfresh.dbo.addressdetail' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="addressdetail">
-          <Property Name="addressDetail_id" Type="varchar" MaxLength="100" />
-          <Property Name="addressDetail_address" Type="varchar" MaxLength="10" />
+          <Key>
+            <PropertyRef Name="addressDetail_id" />
+          </Key>
+          <Property Name="addressDetail_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="addressDetail_address" Type="varchar" MaxLength="40" />
           <Property Name="addressDetail_userId" Type="int" />
           <Property Name="addressDetail_postCode" Type="int" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="admin">
           <Key>
             <PropertyRef Name="admin_id" />
@@ -66,7 +67,7 @@ warning 6013: The table/view 'farmfresh.dbo.addressdetail' does not have a prima
           <Property Name="orders_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="orders_createDate" Type="datetime" />
           <Property Name="orders_userId" Type="int" />
-          <Property Name="orders_shippingAddress" Type="varchar" MaxLength="100" />
+          <Property Name="orders_shippingAddress" Type="varchar" MaxLength="40" />
           <Property Name="orders_status" Type="bit" />
         </EntityType>
         <EntityType Name="paragraph">
@@ -109,13 +110,22 @@ warning 6013: The table/view 'farmfresh.dbo.addressdetail' does not have a prima
           <Property Name="user_firstName" Type="varchar" MaxLength="40" />
           <Property Name="user_lastName" Type="varchar" MaxLength="40" />
           <Property Name="user_fullName" Type="varchar" MaxLength="80" />
-          <Property Name="user_email" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="user_password" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="user_email" Type="varchar" MaxLength="100" />
+          <Property Name="user_password" Type="varchar" MaxLength="40" />
           <Property Name="user_phone" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Errors Found During Generation:
-error 6004: The table 'farmfresh.dbo.addressdetail' is referenced by a relationship, but cannot be found.
-        <Association Name="fk_addressDetail" />-->
+        <Association Name="fk_addressDetail">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="addressdetail" Type="Self.addressdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="addressdetail">
+              <PropertyRef Name="addressDetail_userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_blog">
           <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
           <End Role="blogs" Type="Self.blogs" Multiplicity="*" />
@@ -201,6 +211,7 @@ error 6004: The table 'farmfresh.dbo.addressdetail' is referenced by a relations
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="farmfreshModelStoreContainer">
+          <EntitySet Name="addressdetail" EntityType="Self.addressdetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="blogs" EntityType="Self.blogs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
@@ -211,6 +222,10 @@ error 6004: The table 'farmfresh.dbo.addressdetail' is referenced by a relations
           <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="provice" EntityType="Self.provice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_addressDetail" Association="Self.fk_addressDetail">
+            <End Role="user" EntitySet="user" />
+            <End Role="addressdetail" EntitySet="addressdetail" />
+          </AssociationSet>
           <AssociationSet Name="fk_blog" Association="Self.fk_blog">
             <End Role="admin" EntitySet="admin" />
             <End Role="blogs" EntitySet="blogs" />
@@ -245,6 +260,7 @@ error 6004: The table 'farmfresh.dbo.addressdetail' is referenced by a relations
     <edmx:ConceptualModels>
       <Schema Namespace="farmfreshModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="farmfreshEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="addressdetail" EntityType="farmfreshModel.addressdetail" />
           <EntitySet Name="admin" EntityType="farmfreshModel.admin" />
           <EntitySet Name="blogs" EntityType="farmfreshModel.blogs" />
           <EntitySet Name="category" EntityType="farmfreshModel.category" />
@@ -255,6 +271,10 @@ error 6004: The table 'farmfresh.dbo.addressdetail' is referenced by a relations
           <EntitySet Name="product" EntityType="farmfreshModel.product" />
           <EntitySet Name="provice" EntityType="farmfreshModel.provice" />
           <EntitySet Name="user" EntityType="farmfreshModel.user" />
+          <AssociationSet Name="fk_addressDetail" Association="farmfreshModel.fk_addressDetail">
+            <End Role="user" EntitySet="user" />
+            <End Role="addressdetail" EntitySet="addressdetail" />
+          </AssociationSet>
           <AssociationSet Name="fk_blog" Association="farmfreshModel.fk_blog">
             <End Role="admin" EntitySet="admin" />
             <End Role="blogs" EntitySet="blogs" />
@@ -284,6 +304,16 @@ error 6004: The table 'farmfresh.dbo.addressdetail' is referenced by a relations
             <End Role="orders" EntitySet="orders" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="addressdetail">
+          <Key>
+            <PropertyRef Name="addressDetail_id" />
+          </Key>
+          <Property Name="addressDetail_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="addressDetail_address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="addressDetail_userId" Type="Int32" />
+          <Property Name="addressDetail_postCode" Type="Int32" />
+          <NavigationProperty Name="user" Relationship="farmfreshModel.fk_addressDetail" FromRole="addressdetail" ToRole="user" />
+        </EntityType>
         <EntityType Name="admin">
           <Key>
             <PropertyRef Name="admin_id" />
@@ -346,7 +376,7 @@ error 6004: The table 'farmfresh.dbo.addressdetail' is referenced by a relations
           <Property Name="orders_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="orders_createDate" Type="DateTime" Precision="3" />
           <Property Name="orders_userId" Type="Int32" />
-          <Property Name="orders_shippingAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="orders_shippingAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="orders_status" Type="Boolean" />
           <NavigationProperty Name="orderitem" Relationship="farmfreshModel.fk01_orderItem" FromRole="orders" ToRole="orderitem" />
           <NavigationProperty Name="user" Relationship="farmfreshModel.fk_orders" FromRole="orders" ToRole="user" />
@@ -393,11 +423,24 @@ error 6004: The table 'farmfresh.dbo.addressdetail' is referenced by a relations
           <Property Name="user_firstName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="user_lastName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="user_fullName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
-          <Property Name="user_email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="user_password" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="user_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="user_password" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="user_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="addressdetail" Relationship="farmfreshModel.fk_addressDetail" FromRole="user" ToRole="addressdetail" />
           <NavigationProperty Name="orders" Relationship="farmfreshModel.fk_orders" FromRole="user" ToRole="orders" />
         </EntityType>
+        <Association Name="fk_addressDetail">
+          <End Type="farmfreshModel.user" Role="user" Multiplicity="0..1" />
+          <End Type="farmfreshModel.addressdetail" Role="addressdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="addressdetail">
+              <PropertyRef Name="addressDetail_userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_blog">
           <End Type="farmfreshModel.admin" Role="admin" Multiplicity="0..1" />
           <End Type="farmfreshModel.blogs" Role="blogs" Multiplicity="*" />
@@ -488,6 +531,16 @@ error 6004: The table 'farmfresh.dbo.addressdetail' is referenced by a relations
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="farmfreshModelStoreContainer" CdmEntityContainer="farmfreshEntities">
+          <EntitySetMapping Name="addressdetail">
+            <EntityTypeMapping TypeName="farmfreshModel.addressdetail">
+              <MappingFragment StoreEntitySet="addressdetail">
+                <ScalarProperty Name="addressDetail_postCode" ColumnName="addressDetail_postCode" />
+                <ScalarProperty Name="addressDetail_userId" ColumnName="addressDetail_userId" />
+                <ScalarProperty Name="addressDetail_address" ColumnName="addressDetail_address" />
+                <ScalarProperty Name="addressDetail_id" ColumnName="addressDetail_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="admin">
             <EntityTypeMapping TypeName="farmfreshModel.admin">
               <MappingFragment StoreEntitySet="admin">
