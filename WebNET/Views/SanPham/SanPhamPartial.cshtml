@@ -3,9 +3,7 @@
 
 <section class="main-content">
     <div class="container">
-
         <div class="main-content__container">
-
             <div class="categories-list__container">
                 <ul class="categories-list" id="categoriesList">
                     <li class="active">
@@ -20,9 +18,7 @@
                 <div class="product-list__container">
                     @foreach (var item in Model)
                     {
-
                         <div class="product-item">
-
                             <div class="product-item__image">
                                 <a href="@Url.Action("ChiTietSanPham", "Home", new { id = item.product_id })">
                                     <img src="@Url.Content("~/Content/img/"+item.product_image)" alt="Guava" width="200px" height="200px">
@@ -42,7 +38,7 @@
                                     <li><i class="fas fa-star" aria-hidden="true"></i></li>
                                     <li><i class="fas fa-star" aria-hidden="true"></i></li>
                                 </ul>
-                                <a class="add-to-cart__btn" href="@Url.Action("ThemGioHang", "GioHang", new { @MaSP = item.product_id, @strURL = Request.Url.ToString() })">add to cart</a>
+                                <a class="add-to-cart__btn" href="@Url.Action("ThemGioHang", "GioHang", new { @MaSP = item.product_id, @strURL = Request.Url.ToString() })">Add to cart</a>
                             </div>
 
                         </div>

@@ -71,14 +71,14 @@ else
                                     @foreach (var item in Model)
                                     {
                                         TotalPrice += item.ThanhTien;
-                                        <tr>
-                                            <td>
-                                                <img src="@Url.Content("~/Content/img" + item.HinhAnh)" alt="">
+                                        <tr >
+                                            <td style="text-align:center">
+                                                <img src="@Url.Content("~/Content/img/" + @item.HinhAnh)" width="50" height="50" alt="">
                                             </td>
 
-                                            <td>@item.TenSP</td>
-                                            <td>@item.MaSP</td>
-                                            <td>@item.SoLuong</td>
+                                            <td style="text-align:center">@item.TenSP</td>
+                                            <td style="text-align:center">@item.MaSP</td>
+                                            <td style="text-align:center">@item.SoLuong</td>
                                             <td style="text-align:center">$@item.DonGia.ToString("#,##")</td>
                                             <td style="text-align:center">$@item.ThanhTien.ToString("#,##")</td>
                                             <td style="text-align:center">
@@ -92,7 +92,7 @@ else
 
                             </div>
                             <div>
-
+                                <p></p>
                             </div>
                             <div class="summarize">
                                 <table style="text-align:center">

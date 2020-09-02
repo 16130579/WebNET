@@ -219,5 +219,9 @@ namespace WebNET.Controllers
         {
             return View("Checkout");
         }
+        public ActionResult ChiTietSanPham()
+        {
+            return View("ChiTietSanPham");
+        }
     }
 }
