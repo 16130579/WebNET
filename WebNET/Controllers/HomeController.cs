@@ -18,18 +18,44 @@ namespace WebNET.Controllers
 
         farmfreshEntities db = new farmfreshEntities();
         // GET: Home
+
         public ActionResult Index(int? page)
         {
             var listspM = db.products.Where(n => n.product_status == 1);
-            ViewBag.listsp = listspM;
-            int pageSize = 4;
-            int pageNumber = (page ?? 1);
+            int PageSize = 8;
+            int PageNumber = (page ?? 1);
+            ViewBag.listsp = listspM.OrderBy(n => n.product_id).ToPagedList(PageNumber, PageSize);
 
-            return View(listspM.OrderBy(n=>n.product_id).ToPagedList(pageNumber,pageSize));
+            return View();
         }
-        public ActionResult ChiTietSanPham(int id)
+        public ActionResult Organic()
+        {
+            var listspO = db.products.Where(n => n.product_categoryId == "C101");
+            ViewBag.listspOrganic = listspO;
+            return View();
+        }
+        public ActionResult Free()
+        {
+            var listspO = db.products.Where(n => n.product_categoryId == "C200");
+            ViewBag.listspFree = listspO;
+            return View();
+        }
+        public ActionResult Nursery()
+        {
+            var listspO = db.products.Where(n => n.product_categoryId == "C400");
+            ViewBag.listspNursery = listspO;
+            return View();
+        }
+        public ActionResult Vegetables()
+        {
+            var listspO = db.products.Where(n => n.product_categoryId == "C500");
+            ViewBag.listspVegetables = listspO;
+            return View();
+        }
+        public ActionResult ChiTietSanPham(int? id)
         {
             product product = db.products.Find(id);
+            ViewBag.id = product.product_id;
             ViewBag.name = product.product_name;
             ViewBag.img = product.product_image;
             ViewBag.price = product.product_price;
@@ -48,6 +74,8 @@ namespace WebNET.Controllers
         {
             //Them vao csdl
             string sEmail = f["user_email"].ToString();
+            string sFirst = f["user_firstName"].ToString();
+            string sLast = f["user_lastName"].ToString();
             string sPass = f["user_password"].ToString();
             user t = db.users.SingleOrDefault(n => n.user_email == sEmail);
             if (t != null)
@@ -55,7 +83,8 @@ namespace WebNET.Controllers
                 ViewBag.error = "Email đã tồn tại";
                 return View();
             }
-            else { 
+            else {
+                tv.user_fullName = sFirst +" "+sLast;
                 tv.user_role = 2;
                 tv.user_password = CreateMD5(sPass);
             db.users.Add(tv);
@@ -136,6 +165,7 @@ namespace WebNET.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "Info")]
         [HttpGet]
         public ActionResult UserInfo(int? id)
         {
@@ -177,6 +207,28 @@ namespace WebNET.Controllers
             //ViewBag.error = "Cập nhật thành công";
             return RedirectToAction("Index");
         }
-
+        public ActionResult ThongTinDonHang()
+        {
+            user u = (user)Session["TaiKhoan"];
+            var listOrder = db.orders.Where(n => n.orders_userId == u.user_id);
+          
+            ViewBag.listOrder = listOrder;
+            return View();
+        }
+        public ActionResult ChiTietDonHang(int? id)
+        {
+            if (id == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            var listitem = db.orderitems.Where(n => n.orderItem_ordersId == id);
+            ViewBag.list = listitem;
+            return View();
+        }
+        public ActionResult About()
+        {
+            return View();
+        }
     }
 }

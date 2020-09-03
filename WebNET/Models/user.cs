@@ -18,6 +18,7 @@ namespace WebNET.Models
         public user()
         {
             this.orders = new HashSet<order>();
+            this.addressdetails = new HashSet<addressdetail>();
         }
     
         public int user_id { get; set; }
@@ -32,5 +33,7 @@ namespace WebNET.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<order> orders { get; set; }
         public virtual role role { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<addressdetail> addressdetails { get; set; }
     }
 }

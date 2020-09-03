@@ -1,0 +1,43 @@
+﻿@using WebNET.Models;
+@{
+    ViewBag.Title = "ThongTinDonHang";
+    Layout = "~/Views/Layout/InfoLayout.cshtml";
+}
+@{ IEnumerable<order> listitem = (IEnumerable<order>)ViewBag.listOrder;}
+
+    <div class="container">
+        <h2 style="margin-left:40%">Thông tin đơn hàng</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th scope="col">Ngày tạo</th>
+                    <th scope="col">Địa chỉ</th>
+                    <th scope="col">Tình trạng</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in listitem)
+                {
+                <tr>
+                    <th scope="row">@item.orders_createDate</th>
+                    <td>@item.orders_shippingAddress</td>
+                    <td>
+                        @{if (@item.orders_status == false)
+                            {
+                                <p>Đơn hàng CHƯA được giao</p>
+                            }
+                            else
+                            {
+                                <p>Đơn hàng ĐÃ được giao</p>
+                            }
+                        }
+                    </td>
+                    <td>@Html.ActionLink("Chi Tiết", "ChiTietDonHang", new { id = item.orders_id })</td>
+
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>

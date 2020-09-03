@@ -12,13 +12,13 @@ namespace WebNET.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class paragraph
+    public partial class addressdetail
     {
-        public string paragraph_id { get; set; }
-        public string paragraph_title { get; set; }
-        public string paragraph_content { get; set; }
-        public string paragraph_blogsId { get; set; }
+        public int addressDetail_id { get; set; }
+        public string addressDetail_address { get; set; }
+        public Nullable<int> addressDetail_userId { get; set; }
+        public Nullable<int> addressDetail_postCode { get; set; }
     
-        public virtual blog blog { get; set; }
+        public virtual user user { get; set; }
     }
 }

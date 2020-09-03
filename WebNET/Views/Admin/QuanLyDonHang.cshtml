@@ -1,0 +1,52 @@
+﻿@using WebNET.Models
+@model IEnumerable<order>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 5);
+}
+
+<hr />
+@*Thể hiện dữ liệu thông qua webgrid*@
+@grid.GetHtml(
+    tableStyle: "gridTable",
+    headerStyle: "gridHead",
+    footerStyle: "gridFooter",
+    rowStyle: "gridRow",
+    alternatingRowStyle: "gridAltRow",
+    columns: grid.Columns(
+
+        grid.Column("orders_createDate", "Ngày Tạo"),
+        grid.Column("orders_userId", "Người đặt"),
+        grid.Column("orders_shippingAddress", "Địa chỉ giao hàng"),
+        grid.Column("orders_status", "Tình Trạng"),
+        grid.Column(format: p => @Html.ActionLink("Chỉnh sửa", "ChinhSuaDonHang", new { id = p.orders_id })),
+        grid.Column(format: p => @Html.ActionLink("Xóa", "XoaDonHang", new { id = p.orders_id })),
+        grid.Column(format: p => @Html.ActionLink("Chi Tiết", "ChiTietDonHang", new { id = p.orders_id }))
+        )
+    );
+<style>
+    .gridTable {
+        border: 1px solid black;
+    }
+
+
+
+    .gridHead {
+        background: crimson;
+    }
+
+    .gridRow {
+        border: 1px solid black;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th {
+        width: 100px;
+    }
+</style>

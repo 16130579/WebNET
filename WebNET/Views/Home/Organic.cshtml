@@ -1,0 +1,9 @@
+﻿@using WebNET.Models;
+@{
+    ViewBag.Title = "Organic";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+@{ IEnumerable<product> listsp = (IEnumerable<product>)ViewBag.listspOrganic;}
+
+@Html.Partial("~/Views/SanPham/SanPhamPartial.cshtml", listsp);
+

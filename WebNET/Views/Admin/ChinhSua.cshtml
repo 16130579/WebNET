@@ -16,114 +16,108 @@
         tinycomments_author: 'Author name',
     });
 </script>
-<h2>Chỉnh sửa</h2>
+
 
 @using (Html.BeginForm("ChinhSua", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+<div class="form-horizontal">
+    <h2>Chỉnh sửa</h2>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.Hidden("product_id", Model.product_id);
 
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.Hidden("product_id", Model.product_id);
-        @*<div class="form-group">
-                @Html.LabelFor(model => model.product_id, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-3">
-                    @Html.EditorFor(model => model.product_id, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.product_id, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.product_name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.EditorFor(model => model.product_name, new { htmlAttributes = new { @class = "form-control" } })
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.product_image, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                <input name="product_image" type="file" />
-                <span style="color:rebeccapurple">@ViewBag.upload</span>
-                <img src="@Url.Content("~/Content/img/"+Model.product_image)" width="200" height="100" />
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.product_price, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.EditorFor(model => model.product_price, new { htmlAttributes = new { @class = "form-control" } })
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.product_salePrice, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.EditorFor(model => model.product_salePrice, new { htmlAttributes = new { @class = "form-control" } })
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.product_categoryId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.DropDownList("product_categoryId", null, new { @class = "form-control" })
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.product_createBy, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.DropDownList("product_createBy", null, new { @class = "form-control" })
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.product_createAt, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                <input name="product_createAt" type="date" />
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.product_quantity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.EditorFor(model => model.product_quantity, new { htmlAttributes = new { @class = "form-control" } })
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.product_description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
-                <textarea name="product_description">@Model.product_description</textarea>
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.product_status, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-3">
-                @Html.EditorFor(model => model.product_status, new { htmlAttributes = new { @class = "form-control" } })
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-3">
-                <input type="submit" value="Lưu" class="btn btn-success" />
-            </div>
+    <div class="form-group" style="display:none">
+        @Html.LabelFor(model => model.product_id, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.product_id, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.product_id, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.product_name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.product_name, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.product_image, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            <input name="product_image" type="file" />
+            <span style="color:rebeccapurple">@ViewBag.upload</span>
+            <img src="@Url.Content("~/Content/img/"+Model.product_image)" width="200" height="100" />
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.product_price, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.product_price, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.product_salePrice, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.product_salePrice, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.product_categoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.DropDownList("product_categoryId", null, new { @class = "form-control" })
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.product_createAt, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            <input name="product_createAt" type="date" />
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.product_quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.product_quantity, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.product_description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            <textarea name="product_description">@Model.product_description</textarea>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.product_status, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.product_status, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-3">
+            <input type="submit" value="Lưu" class="btn btn-success" />
+        </div>
+    </div>
+</div>
 }
 
 <div>

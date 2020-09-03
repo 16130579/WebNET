@@ -1,0 +1,38 @@
+﻿@using WebNET.Models;
+
+@{
+    ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Views/Layout/InfoLayout.cshtml";
+}
+
+@{ IEnumerable<orderitem> listitem = (IEnumerable<orderitem>)ViewBag.list;}
+
+    <div class="container" style="margin-left:40%;">
+        <br />
+        <h2>Chi tiết đơn hàng</h2>
+        <br />
+        <table class="">
+            <thead>
+                <tr>
+
+
+                    <th scope="col">Tên sản phẩm</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Giá</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in listitem)
+                {
+                    <tr>
+
+
+                        <td>@item.orderItem_productName</td>
+                        <td>@item.orderItem_quantity</td>
+                        <td>@item.orderItem_price $</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+

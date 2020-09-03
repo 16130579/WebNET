@@ -17,7 +17,9 @@ namespace WebNET.Models
         public int orderItem_id { get; set; }
         public Nullable<int> orderItem_ordersId { get; set; }
         public Nullable<int> orderItem_productId { get; set; }
+        public string orderItem_productName { get; set; }
         public Nullable<int> orderItem_quantity { get; set; }
+        public Nullable<decimal> orderItem_price { get; set; }
     
         public virtual order order { get; set; }
         public virtual product product { get; set; }

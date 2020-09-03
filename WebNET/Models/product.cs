@@ -26,13 +26,11 @@ namespace WebNET.Models
         public Nullable<int> product_price { get; set; }
         public Nullable<int> product_salePrice { get; set; }
         public string product_categoryId { get; set; }
-        public string product_createBy { get; set; }
         public Nullable<System.DateTime> product_createAt { get; set; }
         public Nullable<int> product_quantity { get; set; }
         public string product_description { get; set; }
         public Nullable<int> product_status { get; set; }
     
-        public virtual admin admin { get; set; }
         public virtual category category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<orderitem> orderitems { get; set; }

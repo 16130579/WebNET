@@ -22,9 +22,7 @@ namespace WebNET.Models
     
         public string category_id { get; set; }
         public string category_title { get; set; }
-        public string category_createBy { get; set; }
     
-        public virtual admin admin { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<product> products { get; set; }
     }

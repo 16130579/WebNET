@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Login";
-    Layout = "~/Views/Layout/HomeLayout.cshtml";
+    Layout = "~/Views/Layout/InfoLayout.cshtml";
 }
 
     <main>
@@ -33,20 +33,15 @@
                             <div class="list__category">
                                 <ul>
                                     <li>
-                                        <a href="login.html" style="color:#212529">
-                                            Login
-                                        </a>
+                                        
+                                        <a style="color:#212529" href="@Url.Action("Login", "Home", new { id = "Login" })">Login</a>
+
                                     </li>
                                     <li>
-                                        <a href="register.html" style="color:#212529">
-                                            Register
-                                        </a>
+                                    
+                                        <a style="color:#212529" href="@Url.Action("DangKy", "Home", new { id = "Register" })">Register</a>
                                     </li>
-                                    <li>
-                                        <a href="register.html" style="color:#212529">
-                                            Forgotten Password
-                                        </a>
-                                    </li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -197,7 +192,7 @@
                             </div>
                             <div>
                                 <p>Email Address</p>
-                                <input type="email" name="txtemail" id="" placeholder="E-Mail Address...">
+                                <input type="email" name="txtemail" id="" autofocus placeholder="E-Mail Address...">
                             </div>
                             <div>
                                 <p>Password</p>

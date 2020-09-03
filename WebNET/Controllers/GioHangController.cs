@@ -15,6 +15,7 @@ namespace WebNET.Controllers
         //Lay gio hang
         public List<ItemGioHang> LayGioHang()
         {
+
             //Gio hang da ton tai
             List<ItemGioHang> lstGioHang = Session["GioHang"] as List<ItemGioHang>;
             if (lstGioHang == null)
@@ -28,11 +29,14 @@ namespace WebNET.Controllers
         //Them gio hang
         public ActionResult ThemGioHang(int MaSP, string strURL)
         {
+            if (Session["TaiKhoan"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             //kiem tra sp co ton tai k
             product sp = db.products.SingleOrDefault(n => n.product_id == MaSP);
             if (sp == null)
             {
-
                 Response.StatusCode = 404;
                 return null;
             }
@@ -97,6 +101,10 @@ namespace WebNET.Controllers
         // GET: GioHang
         public ActionResult XemGioHang()
         {
+            if (Session["TaiKhoan"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             //Lay gio hang
             List<ItemGioHang> lstGioHang = LayGioHang();
             return View(lstGioHang);
@@ -173,6 +181,58 @@ namespace WebNET.Controllers
             //Xoa item trong gh
             lstGioHang.Remove(spCheck);
             return RedirectToAction("XemGioHang");
+        }
+        //Dat hang
+        public ActionResult DatHang(user kh, addressdetail addressdetail)
+        {
+            if (Session["GioHang"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            user khachHang = new user();
+            khachHang= (user)Session["TaiKhoan"] ;
+            //khachHang = kh;
+            //db.users.Add(khachHang);
+            //db.SaveChanges();
+
+            addressdetail detail = new addressdetail();
+            detail.addressDetail_userId = khachHang.user_id;
+            detail = addressdetail;
+            db.addressdetails.Add(detail);
+            db.SaveChanges();
+
+            order ddh = new order();
+            ddh.orders_createDate = DateTime.Now;
+            ddh.orders_userId = khachHang.user_id;
+            ddh.orders_shippingAddress = detail.addressDetail_address;
+            ddh.orders_status = false;
+            db.orders.Add(ddh);
+            db.SaveChanges();
+
+            //them chi tiet don hang
+            List<ItemGioHang> lstGH = LayGioHang();
+            foreach (var item in lstGH)
+            {
+                orderitem ctdh = new orderitem();
+                ctdh.orderItem_ordersId = ddh.orders_id;
+                ctdh.orderItem_productId = item.MaSP;
+                ctdh.orderItem_productName = item.TenSP;
+                ctdh.orderItem_quantity = item.SoLuong;
+                ctdh.orderItem_price = item.DonGia;
+                db.orderitems.Add(ctdh);
+            }
+            db.SaveChanges();
+            Session["GioHang"] = null;
+            return RedirectToAction("XemGioHang");
+        }
+
+        public ActionResult Checkout()
+        {
+            return View("Checkout");
+        }
+        public ActionResult ThanhCong()
+        {
+            return View();
         }
     }
 }

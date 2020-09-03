@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Layout/AdminLayout.cshtml";
-    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 5);
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 10);
 }
 
 <hr />
@@ -42,9 +42,11 @@
 
     table, th, td {
         border: 1px solid black;
+        padding: 5px;
     }
 
     th {
         width: 100px;
     }
 </style>
+<br />

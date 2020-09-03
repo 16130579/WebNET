@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "UserInfo";
-    Layout = "~/Views/Layout/HomeLayout.cshtml";
+    Layout = "~/Views/Layout/InfoLayout.cshtml";
 }
 
 
@@ -11,33 +11,35 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal container">
-        <h2>UserInfo</h2>
+    <div class="form-horizontal container" style="margin-left:10%;">
+        <br />
+        <h2 style="margin-left:35%;">Thông tin tài khoản</h2>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.Hidden("user_id", Model.user_id)
     <p id="error" style="color:red">@ViewBag.error</p>
+    <div style="margin-left:35%;">
         <div class="form-group">
-            @Html.LabelFor(model => model.user_firstName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <h5>Tên đệm</h5>
+            <div class="col-md-5">
                 @Html.EditorFor(model => model.user_firstName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.user_firstName, "", new { @class = "text-danger" })
+
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.user_lastName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <h5>Tên</h5>
+            <div class="col-md-5">
                 @Html.EditorFor(model => model.user_lastName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.user_lastName, "", new { @class = "text-danger" })
+
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.user_fullName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <h5>Họ và tên</h5>
+            <div class="col-md-5">
                 @Html.EditorFor(model => model.user_fullName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.user_fullName, "", new { @class = "text-danger" })
+
             </div>
         </div>
 
@@ -45,7 +47,7 @@
             @Html.LabelFor(model => model.user_email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.user_email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.user_email, "", new { @class = "text-danger" })
+
             </div>
         </div>
 
@@ -53,21 +55,21 @@
             @Html.LabelFor(model => model.user_password, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.user_password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.user_password, "", new { @class = "text-danger" })
+
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.user_phone, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <h5>Số điện thoại</h5>
+            <div class="col-md-5">
                 @Html.EditorFor(model => model.user_phone, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.user_phone, "", new { @class = "text-danger" })
+
             </div>
         </div>
+    </div>
 
 
-
-        <div class="form-group">
+        <div class="form-group" style="margin-left:35%;">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Lưu" class="btn btn-success" />
             </div>
@@ -76,7 +78,5 @@
 }
 
 <div>
-    <div class="container">
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+    
 </div>

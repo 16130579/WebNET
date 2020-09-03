@@ -84,28 +84,19 @@
                         </div>
 
                         <div class="option">
-                            <h4 class="title__section row">Available Options</h4>
-                            <div class="option__item">
-                                <h6 class="row"><span>*</span>&nbsp;Delivery Date</h6>
-                                <div class="calendar row">
-                                    <input type="date">
-                                </div>
-                            </div>
-
+                           
                             <div class="price row">
                                 <h4>$  @ViewBag.price</h4>
                             </div>
 
                             <div class="more__props row align-items-center">
-                                <div class="quantity">
-                                    <h6>Quantity</h6>
-                                </div>
-                                <div class="input__quantity">
-                                    <input type="text" name="" value="1" id="">
-                                </div>
+                                @foreach (var item in (List<ItemGioHang>)Session["GioHang"])
+                                {
                                 <div class="add__to__cart">
-                                    <a href="">Add to cart</a>
+                                <a href="@Url.Action("ThemGioHang", "GioHang", new { @MaSP = item.MaSP, @strURL = Request.Url.ToString()})">Add to cart</a>
+                            
                                 </div>
+                                }
                             </div>
                         </div>
                     </div>

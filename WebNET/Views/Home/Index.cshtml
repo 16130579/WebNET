@@ -5,10 +5,13 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Layout/HomeLayout.cshtml";
 }
-@{ IEnumerable<product> listsp = (IEnumerable<product>)ViewBag.listsp;}
+@{ PagedList.IPagedList<product> listsp = (PagedList.IPagedList<product>)ViewBag.listsp;}
 
 
 @Html.Partial("~/Views/SanPham/SanPhamPartial.cshtml", listsp);
 
-
+<div class="dlink" style="margin-left:80%;margin-bottom:10%;">
+    Trang @(listsp.PageCount < listsp.PageNumber ? 0 : listsp.PageNumber)/@listsp.PageCount
+    @Html.PagedListPager(listsp, page => Url.Action("Index",new { page = page }))
+</div>
 

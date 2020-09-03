@@ -1,0 +1,38 @@
+﻿@using WebNET.Models;
+
+@{
+    ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+@{ IEnumerable<orderitem> listitem = (IEnumerable<orderitem>)ViewBag.list;}
+<h2>Chi tiết đơn hàng</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Order Id</th>
+                <th scope="col">Product ID</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in listitem)
+            {
+                <tr>
+                    <th scope="row">@item.orderItem_ordersId</th>
+                    <td>@item.orderItem_productId</td>
+                    <td>@item.orderItem_productName</td>
+                    <td>@item.orderItem_quantity</td>
+                    <td>@item.orderItem_price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+<p>
+
+    @Html.ActionLink("Back to List", "QuanLyDonHang")
+</p>

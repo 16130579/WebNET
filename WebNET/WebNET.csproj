@@ -264,10 +264,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\admin.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\blog.cs">
+    <Compile Include="Models\addressdetail.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\category.cs">
@@ -296,9 +293,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\orderitem.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\paragraph.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\product.cs">
@@ -575,10 +569,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Layout\HomeLayout1.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\SanPham\SanPhamPartial2.cshtml" />
-    <Content Include="Views\SanPham\SanPham.cshtml" />
     <Content Include="Views\Home\ChiTietSanPham.cshtml" />
     <Content Include="Views\TimKiem\KQTimkiem.cshtml" />
     <Content Include="Views\Layout\AdminLayout.cshtml" />
@@ -600,6 +592,20 @@
     <Content Include="Views\Layout\HomeLayout.cshtml" />
     <Content Include="Views\Home\UserInfo.cshtml" />
     <Content Include="Views\Home\UserPass.cshtml" />
+    <Content Include="Views\Home\Organic.cshtml" />
+    <Content Include="Views\Home\Free.cshtml" />
+    <Content Include="Views\Home\Nursery.cshtml" />
+    <Content Include="Views\Home\Vegetables.cshtml" />
+    <Content Include="Views\GioHang\Checkout.cshtml" />
+    <Content Include="Views\Admin\QuanLyDonHang.cshtml" />
+    <Content Include="Views\Admin\ChinhSuaDonHang.cshtml" />
+    <Content Include="Views\Admin\XoaDonHang.cshtml" />
+    <Content Include="Views\Admin\ChiTietDonHang.cshtml" />
+    <Content Include="Views\Layout\InfoLayout.cshtml" />
+    <Content Include="Views\Home\ThongTinDonHang.cshtml" />
+    <Content Include="Views\Home\ChiTietDonHang.cshtml" />
+    <Content Include="Views\GioHang\ThanhCong.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

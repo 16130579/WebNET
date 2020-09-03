@@ -2,9 +2,23 @@
 
 @{
     ViewBag.Title = "DangKy";
-    Layout = "~/Views/Layout/HomeLayout.cshtml";
+    Layout = "~/Views/Layout/InfoLayout.cshtml";
 }
 
+    <script>
+        var check = function () {
+            if (document.getElementById('user_password').value ==
+                document.getElementById('passwordConfirm').value) {
+                document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerHTML = 'Xác nhận mật khẩu mới thành công';
+                document.getElementById('btnsubmit').style.display = '';
+            } else {
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'Xác nhận mật khẩu mới thất bại';
+                document.getElementById('btnsubmit').style.display = 'none';
+            }
+        }
+    </script>
     <main>
         <section class="register__title__wrapper">
             <div class="container">
@@ -34,19 +48,13 @@
                             <div class="list__category">
                                 <ul>
                                     <li>
-                                        <a href="login.html" style="color:#212529">
-                                            Login
-                                        </a>
+
+                                        <a style="color:#212529" href="@Url.Action("Login", "Home", new { id = "Login" })">Login</a>
+
                                     </li>
                                     <li>
-                                        <a href="register.html" style="color:#212529">
-                                            Register
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="register.html" style="color:#212529">
-                                            Forgotten Password
-                                        </a>
+
+                                        <a style="color:#212529" href="@Url.Action("DangKy", "Home", new { id = "Register" })">Register</a>
                                     </li>
                                 </ul>
                             </div>
@@ -174,25 +182,30 @@
                                 <h5>Your Personal Details</h5>
                             </div>
 
-                            <div class="information">
+                            <div class="information" >
+                                <input style="display:none;" autofocus/>
                                 <div>
-                                    <label for=""><span>*</span>First Name</label>
-                                    @Html.TextBox("user_firstName")
+                                    <label for=""><span>*</span >First Name</label>
+                                   
+                                <input type="text" name="user_firstName" id="user_firstName" placeholder="First Name" required>
                                 </div>
 
                                 <div>
                                     <label for=""><span>*</span>Last Name</label>
-                                    @Html.TextBox("user_lastName")
+                                   
+                                    <input type="text" name="user_lastName" id="user_lastName" placeholder="Last Name" required>
                                 </div>
 
                                 <div>
                                     <label for=""><span>*</span>E-Mail</label>
-                                    @Html.TextBox("user_email")
+                                   
+                                    <input type="email" name="user_email" id="user_email" placeholder="Email" required>
                                 </div>
 
                                 <div>
                                     <label for=""><span>*</span>Telephone</label>
-                                    @Html.TextBox("user_phone")
+                                   
+                                    <input type="number" name="user_phone" id="user_phone" placeholder="Phone">
                                 </div>
 
                                 <div class="register__title">
@@ -202,13 +215,15 @@
                                 <div class="information">
                                     <div>
                                         <label for=""><span>*</span>Password</label>
-                                        @Html.Password("user_password")
+                                        
+                                    <input type="password" name="user_password"  onkeyup='check();' id="user_password" placeholder="Password Confirm">
                                     </div>
 
                                     <div>
                                         <label for=""><span>*</span>Password Confirm</label>
-                                        <input type="text" name="passwordConfirm" id="passwordConfirm" placeholder="Password Confirm">
+                                        <input type="password" name="passwordConfirm"  onkeyup='check();' id="passwordConfirm" placeholder="Password Confirm">
                                         <p id="error" style="color:red">@ViewBag.error</p>
+                                        <p id="message" style="color:red"></p>
                                     </div>
                                 </div>
 
@@ -223,7 +238,7 @@
                                         &nbsp;
                                         <input type="checkbox">*@
                                         &nbsp;
-                                        <input type="submit" value="Đăng ký" class="continue">                                    </div>
+                                        <input type="submit" id="btnsubmit" value="Đăng ký" class="continue">                                    </div>
                                 </div>
 
                             </div>

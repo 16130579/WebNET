@@ -1,0 +1,10 @@
+﻿@using WebNET.Models;
+@{
+    ViewBag.Title = "Vegetables";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+@{ IEnumerable<product> listsp = (IEnumerable<product>)ViewBag.listspVegetables;}
+
+@Html.Partial("~/Views/SanPham/SanPhamPartial.cshtml", listsp);
+
+

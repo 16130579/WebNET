@@ -13,7 +13,8 @@
     <script src="https://kit.fontawesome.com/6b4959f5c2.js"></script>
     <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="~/Content/css/main.css">
@@ -34,7 +35,6 @@
     <style>
         /* Style The Dropdown Button */
         .dropbtn {
-            
             color: black;
             padding: 1px;
             font-size: 16px;
@@ -81,8 +81,11 @@
             background-color: #3e8e41;
         }
     </style>
+    <script>
+        $("#divVZITab").focus()
+    </script>
 </head>
-<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+<body onload="location.hash = 'infoPage';" data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
     <header>
 
         <!-- content small menu in the top -->
@@ -97,15 +100,11 @@
                                     <li>Việt Nam</li>
                                     <li>English</li>
                                 </ul>
+
                             </li>
                             <li>
-                                Currency
-                                <ul class="sub-menu">
-                                    <li>VNĐ</li>
-                                    <li>Euro</li>
-                                    <li>Dollar</li>
-                                </ul>
-                            </li>
+                                @Html.ActionLink("Quản lý", "Index", "Admin")
+                                </li>
                         </ul>
                     </div>
 
@@ -138,10 +137,11 @@
                                                                 <button class="dropbtn">Chào @tv.user_email</button>
                                                                 <div class="dropdown-content">
 
-                                                                    @Html.ActionLink("Thông tin tài khoản", "UserInfo")
-                                                                  
-                                                                    @Html.ActionLink("Đổi mật khẩu", "UserPass")
-                                                                    @Html.ActionLink("Logout", "Logout")
+                                                                    @Html.ActionLink("Thông tin tài khoản", "UserInfo","Home")
+
+                                                                    @Html.ActionLink("Đổi mật khẩu", "UserPass", "Home")
+                                                                    @Html.ActionLink("Thông tin đơn hàng", "ThongTinDonHang", "Home")
+                                                                    @Html.ActionLink("Logout", "Logout", "Home")
                                                                 </div>
                                                             </div> }
                                                                         else
@@ -225,15 +225,16 @@
                 <nav class="main-nav__container">
                     <ul class="main-nav__menu">
                         <li>
-                            <a href="category.html">Organic Food</a>
-                            <ul class="sub__main__menu">
-                                <li><a href="category.html">Healthful Food</a></li>
-                                <li><a href="category.html">Super Food</a></li>
-                                <li><a href="category.html">Lite Food</a></li>
-                            </ul>
+                            
+                            @Html.ActionLink("Organic Food", "Organic", "Home")
+
                         </li>
-                        <li><a href="chemical-free.html">Chemical Free</a></li>
                         <li>
+                         
+                            @Html.ActionLink("Chemical Free", "Free", "Home")
+                        </li>
+
+                        @*<li>
                             <a href="fruits.html">Fruits</a>
                             <ul class="sub__main__menu">
                                 <li><a href="fruits.html">Skinny Food</a></li>
@@ -242,9 +243,15 @@
                                 <li><a href="fruits.html">Non-Fat</a></li>
                                 <li><a href="fruits.html">Peanut</a></li>
                             </ul>
-                        </li>
-                        <li><a href="nursery.html">Nursery</a></li>
-                        <li><a href="vegetables.html">Vegetables</a></li>
+                        </li>*@
+                    <li>
+                        
+                        @Html.ActionLink("Nursery", "Nursery", "Home")
+                    </li>
+                    <li>
+                        
+                        @Html.ActionLink("Vegetables", "Vegetables", "Home")
+                    </li>
                         <li>
                             <a href="#">More</a>
                             <ul class="sub__main__menu">
@@ -284,7 +291,7 @@
                 </a>
             </div>
         </section>
-
+        <div id="infoPage"></div>
         @RenderBody()
 
         <section class="customer__review">
@@ -298,7 +305,7 @@
                                     <img src="~/Content/img/46499158_906532309541687_735503026202083328_n.jpg" alt="">
                                 </div>
                                 <div class="review__top__title">
-                                    <p class="customer__name">Cường Nguyễn</p>
+                                    <p class="customer__name">Tuấn Thành</p>
                                     <p class="customer__position">Web Developer</p>
                                 </div>
                             </div>
@@ -322,7 +329,31 @@
                                     <img src="~/Content/img/46499158_906532309541687_735503026202083328_n.jpg" alt="">
                                 </div>
                                 <div class="review__top__title">
-                                    <p class="customer__name">Cường Nguyễn</p>
+                                    <p class="customer__name">Đức Tài</p>
+                                    <p class="customer__position">Web Developer</p>
+                                </div>
+                            </div>
+                            <div class="review__bottom">
+                                <div class="review__bottom__icon">
+                                    <img src="~/Content/img/quote.png" alt="">
+                                </div>
+                                <div class="review__bottom__description">
+
+                                    <p>
+                                        There are many variations of passages of Lorem Ipsum available, but the majority
+                                        have suffered alteration in some form, by injected humour.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review__description aos-init" data-aos="zoom-in-right" data-aos-duration="1900">
+                            <div class="review__top">
+                                <div class="review__top__image">
+                                    <img src="~/Content/img/46499158_906532309541687_735503026202083328_n.jpg" alt="">
+                                </div>
+                                <div class="review__top__title">
+                                    <p class="customer__name">Trọng Nhật</p>
                                     <p class="customer__position">Web Developer</p>
                                 </div>
                             </div>

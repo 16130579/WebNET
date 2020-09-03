@@ -1,0 +1,186 @@
+﻿
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Layout/InfoLayout.cshtml";
+}
+<main>
+    <section class="register__title__wrapper">
+        <div class="container">
+            <div class="breadcrumb__container row align-items-center">
+                <div class="breadcrumb__icon">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                </div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb non-bg">
+                        <li class="breadcrumb-item"><a class="color-green" href="index.html">Home</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Register</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories__menu__wrapper">
+        <div class="container">
+            <div class="register__wrapper row">
+                <div class="category__search">
+                    <div class="search__by__category">
+                        <div class="search__title">
+                            <h3>ACCOUNT</h3>
+                        </div>
+
+                        <div class="list__category">
+                            <ul>
+                                <li>
+
+                                    <a style="color:#212529" href="@Url.Action("Login", "Home", new { id = "Login" })">Login</a>
+
+                                </li>
+                                <li>
+
+                                    <a style="color:#212529" href="@Url.Action("DangKy", "Home", new { id = "Register" })">Register</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="search__by__refine">
+                        <div class="search__title">
+                            <h3>INFORMATIONS</h3>
+                        </div>
+                        <div class="list__category">
+                            <ul>
+                                <li>
+                                    <a href="about-us.html" style="color:#212529">
+                                        About Us
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="about-us.html" style="color:#212529">
+                                        Delivery Information
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="about-us.html" style="color:#212529">
+                                        Privacy Policy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="about-us.html" style="color:#212529">
+                                        Term and Conditions
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="about-us.html" style="color:#212529">
+                                        Contact Us
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="banner__container">
+                        <img src="~/Content/img/left-banner.jpg" alt="">
+                    </div>
+                    
+                </div>
+
+
+                <div class="about__us__wrapper">
+                    <div class="about__us__container">
+                        <div class="blog__titles">
+                            <h3>ABOUT US</h3>
+                        </div>
+
+                        <div class="about__item__wrapper">
+                            <div class="about__item__container">
+                                <div class="about__item row" data-aos="fade-left" data-aos-anchor="#example-anchor"
+                                     data-aos-offset="500" data-aos-duration="500">
+                                    <div class="about__item__image">
+                                        <img src="~/Content/img/vanchuyen01-8391.png" alt="">
+                                    </div>
+                                    <div class="about__item__content">
+                                        <h5>HANDLING</h5>
+                                        <p>Clean product after havesting with modern technology</p>
+                                    </div>
+                                </div>
+
+                                <div class="about__item row" data-aos="fade-left" data-aos-anchor="#example-anchor"
+                                     data-aos-offset="500" data-aos-duration="800">
+                                    <div class="about__item__image">
+                                        <img src="~/Content/img/baoquan-235.png" alt="">
+                                    </div>
+                                    <div class="about__item__content">
+                                        <h5>STORAGE</h5>
+                                        <p>
+                                            Store products in cold storage at suitable temperature and humidity
+                                            conditions
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="about__item row" data-aos="fade-left" data-aos-anchor="#example-anchor"
+                                     data-aos-offset="500" data-aos-duration="1100">
+                                    <div class="about__item__image">
+                                        <img src="~/Content/img/donggoi-2499.png" alt="">
+                                    </div>
+                                    <div class="about__item__content">
+                                        <h5>PACKING</h5>
+                                        <p>Packed according to export standard,ensuring the freshness to customers</p>
+                                    </div>
+                                </div>
+
+                                <div class="about__item row" data-aos="fade-left" data-aos-anchor="#example-anchor"
+                                     data-aos-offset="500" data-aos-duration="1400">
+                                    <div class="about__item__image">
+                                        <img src="~/Content/img/vanchuyen-7552.png" alt="">
+                                    </div>
+                                    <div class="about__item__content">
+                                        <h5>TRANSPORT</h5>
+                                        <p>Truck and container system ready to meet the transport needs everyday</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="teammates__wrapper">
+                            <div class="teamates__title" data-aos="zoom-in" data-aos-duration="600">
+                                <h3>OUR TEAMATES</h3>
+                            </div>
+                            <div class="teammates__container row">
+                                <div class="teamate__item col-lg-4" data-aos="fade-up"
+                                     data-aos-anchor-placement="center-center" data-aos-duration="800">
+                                    <div class="teamate__image">
+                                        <img src="~/Content/img/46499158_906532309541687_735503026202083328_n.jpg" alt="">
+                                    </div>
+                                    <div class="teamate__content">
+                                        <h4>Phạm Bùi Tuấn Thành</h4>
+                                    </div>
+                                </div>
+
+                                <div class="teamate__item col-lg-4" data-aos="fade-up"
+                                     data-aos-anchor-placement="center-center" data-aos-duration="1200">
+                                    <div class="teamate__image">
+                                        <img src="~/Content/img/72849683_2511181802448117_8010999878404538368_o.jpg" alt="">
+                                    </div>
+                                    <div class="teamate__content">
+                                        <h4>Phạm Đức Tài</h4>
+                                    </div>
+                                </div>
+
+                                <div class="teamate__item col-lg-4" data-aos="fade-up"
+                                     data-aos-anchor-placement="center-center" data-aos-duration="1600">
+                                    <div class="teamate__image">
+                                        <img src="~/Content/img/74285211_1108899705982930_830203915457789952_o.jpg" alt="">
+                                    </div>
+                                    <div class="teamate__content">
+                                        <h4>Huỳnh Trọng Nhật</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        
+    </section>
+</main>

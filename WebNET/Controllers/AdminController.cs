@@ -30,7 +30,7 @@ namespace WebNET.Controllers
         public ActionResult TaoMoi()
         {
             ViewBag.product_categoryId = new SelectList(db.categories.OrderBy(n => n.category_id), "category_id", "category_title");
-            ViewBag.product_createBy = new SelectList(db.admins.OrderBy(n => n.admin_id), "admin_id", "admin_name");
+            
             return View();
         }
         [ValidateInput(false)]
@@ -38,7 +38,7 @@ namespace WebNET.Controllers
         public ActionResult TaoMoi(product product,HttpPostedFileBase product_image)
         {
             ViewBag.product_categoryId = new SelectList(db.categories.OrderBy(n => n.category_id), "category_id", "category_title");
-            ViewBag.product_createBy = new SelectList(db.admins.OrderBy(n => n.admin_id), "admin_id", "admin_name");
+            
            
             //kiem tra hinh anh ton tai chua
             if (product_image.ContentLength > 0)
@@ -75,7 +75,7 @@ namespace WebNET.Controllers
                 return HttpNotFound();
             }
             ViewBag.product_categoryId = new SelectList(db.categories.OrderBy(n => n.category_id), "category_id", "category_title",pd.product_categoryId);
-            ViewBag.product_createBy = new SelectList(db.admins.OrderBy(n => n.admin_id), "admin_id", "admin_name",pd.product_createBy);
+            
             return View(pd);
         }
         [ValidateInput(false)]
@@ -100,7 +100,7 @@ namespace WebNET.Controllers
 
             }
             ViewBag.product_categoryId = new SelectList(db.categories.OrderBy(n => n.category_id), "category_id", "category_title", model.product_categoryId);
-            ViewBag.product_createBy = new SelectList(db.admins.OrderBy(n => n.admin_id), "admin_id", "admin_name", model.product_createBy);
+            
                 db.Entry(model).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -120,7 +120,7 @@ namespace WebNET.Controllers
                 return HttpNotFound();
             }
             ViewBag.product_categoryId = new SelectList(db.categories.OrderBy(n => n.category_id), "category_id", "category_title", pd.product_categoryId);
-            ViewBag.product_createBy = new SelectList(db.admins.OrderBy(n => n.admin_id), "admin_id", "admin_name", pd.product_createBy);
+            
 
             return View(pd);
         }
@@ -207,5 +207,97 @@ namespace WebNET.Controllers
             db.SaveChanges();
             return RedirectToAction("UserView");
         }
+        //Quan ly don hang
+        public ActionResult QuanLyDonHang()
+        {
+            
+            return View(db.orders);
+        }
+        [HttpGet]
+        public ActionResult ChinhSuaDonHang(int? id)
+        {
+            if (id == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            order u = db.orders.SingleOrDefault(n => n.orders_id == id);
+            if (u == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.orders_userId = new SelectList(db.users.OrderBy(n => n.user_id), "user_id", "user_fullName", u.orders_userId);
+            return View(u);
+        }
+        [ValidateInput(false)]
+        [HttpPost]
+        public ActionResult ChinhSuaDonHang(order model)
+        {
+            ViewBag.orders_userId = new SelectList(db.users.OrderBy(n => n.user_id), "user_id", "user_fullName", model.orders_userId);
+            db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("QuanLyDonHang");
+
+        }
+        [HttpGet]
+        public ActionResult XoaDonHang(int? id)
+        {
+            if (id == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            order u = db.orders.SingleOrDefault(n => n.orders_id == id);
+            if (u == null)
+            {
+                return HttpNotFound();
+            }
+            
+            return View(u);
+        }
+        [HttpPost]
+        public ActionResult XoaDonHang(int id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            order model = db.orders.SingleOrDefault(n => n.orders_id == id);
+            var listOrderItem = db.orderitems.Where(n => n.orderItem_ordersId == id);
+            if (model == null)
+            {
+                return HttpNotFound();
+
+            }
+            
+            foreach (var item in listOrderItem)
+            {
+                db.orderitems.Remove(item);
+            }
+            db.orders.Remove(model);
+            db.SaveChanges();
+            return RedirectToAction("QuanLyDonHang");
+        }
+        [HttpGet]
+        public ActionResult ChiTietDonHang(int? id)
+        {
+            if (id == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            //orderitem u = db.orderitems.SingleOrDefault(n => n.orderItem_ordersId == id);
+            var listitem = db.orderitems.Where(n => n.orderItem_ordersId == id);
+            //if (u == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            ViewBag.list = listitem;
+            //ViewBag.orders_userId = new SelectList(db.users.OrderBy(n => n.user_id), "user_id", "user_firstName", u.orders_userId);
+            return View(listitem);
+        }
     }
+    
+    
 }
